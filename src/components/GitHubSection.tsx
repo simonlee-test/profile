@@ -1,193 +1,226 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Github, GitCommit, GitPullRequest, AlertCircle, Star, GitFork } from 'lucide-react';
-import { useGithubData, useGithubStats } from '@/hooks/useGithubData';
-import { GitHubTerrain } from '@/components/canvas/GitHubTerrain';
-import { LoadingSpinner } from '@/components/LoadingSpinner';
+import { SceneWrapper, LightingSetup, CameraController, SceneEnvironment } from './canvas';
+import { GitHubTerrain, OptimizedGitHubTerrain } from './canvas/GitHubTerrain';
+import { useGithubData } from '@/hooks/useGithubData';
+import { LoadingSpinner } from './LoadingSpinner';
+import type { NormalizedContributionData } from '@/types/github';
 
 /**
- * Stat card component
+ * GitHub Section Component
+ *
+ * Displays a 3D voxel terrain visualization of GitHub contributions.
+ *
+ * Features:
+ * - Interactive 3D terrain with orbit controls
+ * - Hover effects showing contribution details
+ * - Click to view specific day information
+ * - Optimized for large datasets
+ * - Responsive design
  */
-interface StatCardProps {
-  icon: React.ReactNode;
-  label: string;
-  value: number;
-  color: string;
-}
+export function GitHubSection() {
+  const [selectedDate, setSelectedDate] = useState<NormalizedContributionData | null>(null);
+  const [useOptimized, setUseOptimized] = useState(false);
 
-function StatCard({ icon, label, value, color }: StatCardProps) {
+  // GitHub username - replace with your actual username
+  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'your-username';
+  const githubToken = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+
+  const { user, contributions, totalContributions, isLoading, error, refetch } = useGithubData({
+    username,
+    token: githubToken,
+    enabled: true,
+  });
+
+  // Handle cube click
+  const handleCubeClick = (data: NormalizedContributionData) => {
+    setSelectedDate(data);
+  };
+
+  // Format date for display
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
+  // Determine which terrain component to use based on data size
+  const shouldUseOptimized = useOptimized || contributions.length > 500;
+
   return (
-    <motion.div whileHover={{ scale: 1.05 }} className="glass-panel p-6 rounded-lg">
-      <div className={`${color} mb-3`}>{icon}</div>
-      <p className="text-gray-600 dark:text-gray-400 text-sm mb-1">{label}</p>
-      <p className="text-3xl font-bold">{value.toLocaleString()}</p>
-    </motion.div>
+    <section id="github" className="relative min-h-screen py-20 px-4">
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto mb-12 text-center">
+        <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 mb-4">
+          GitHub Contributions
+        </h2>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          Explore my coding journey through an interactive 3D terrain visualization. Each cube
+          represents a day of contributions, with height indicating activity level.
+        </p>
+      </div>
+
+      {/* Loading State */}
+      {isLoading && (
+        <div className="flex items-center justify-center min-h-[400px]">
+          <LoadingSpinner />
+        </div>
+      )}
+
+      {/* Error State */}
+      {error && (
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-6 text-center">
+            <h3 className="text-red-400 text-xl font-semibold mb-2">Failed to load GitHub data</h3>
+            <p className="text-gray-400 mb-4">
+              {error.message || 'An error occurred while fetching GitHub data'}
+            </p>
+            <button
+              onClick={() => refetch()}
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg transition-colors"
+            >
+              Retry
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* GitHub Terrain */}
+      {!isLoading && !error && contributions.length > 0 && (
+        <div className="max-w-7xl mx-auto">
+          {/* Controls */}
+          <div className="flex justify-end mb-4 gap-4">
+            <button
+              onClick={() => setUseOptimized(!useOptimized)}
+              className="bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 text-purple-400 px-4 py-2 rounded-lg transition-colors text-sm"
+            >
+              {useOptimized ? 'Use Interactive Mode' : 'Use Optimized Mode'}
+            </button>
+          </div>
+
+          {/* 3D Scene */}
+          <div className="relative rounded-2xl overflow-hidden border border-cyan-500/20 bg-black/50 backdrop-blur-sm">
+            <SceneWrapper className="h-[600px]">
+              <LightingSetup />
+              <CameraController />
+              <SceneEnvironment />
+              {shouldUseOptimized ? (
+                <OptimizedGitHubTerrain
+                  contributions={contributions}
+                  totalContributions={totalContributions}
+                  username={user?.login}
+                />
+              ) : (
+                <GitHubTerrain
+                  contributions={contributions}
+                  totalContributions={totalContributions}
+                  username={user?.login}
+                  onCubeClick={handleCubeClick}
+                />
+              )}
+            </SceneWrapper>
+          </div>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+            <StatCard
+              label="Total Contributions"
+              value={totalContributions.toLocaleString()}
+              color="cyan"
+            />
+            <StatCard
+              label="Commits"
+              value={user?.contributionsCollection.totalCommitContributions.toLocaleString() || '0'}
+              color="purple"
+            />
+            <StatCard
+              label="Pull Requests"
+              value={
+                user?.contributionsCollection.totalPullRequestContributions.toLocaleString() || '0'
+              }
+              color="green"
+            />
+            <StatCard
+              label="Code Reviews"
+              value={
+                user?.contributionsCollection.totalPullRequestReviewContributions.toLocaleString() ||
+                '0'
+              }
+              color="orange"
+            />
+          </div>
+
+          {/* Selected Date Info */}
+          {selectedDate && (
+            <div className="mt-8 bg-black/50 backdrop-blur-sm border border-purple-500/30 rounded-lg p-6">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-2xl font-bold text-purple-400 mb-2">
+                    {formatDate(selectedDate.date)}
+                  </h3>
+                  <div className="space-y-2 text-gray-300">
+                    <p>
+                      <span className="text-gray-500">Contributions:</span>{' '}
+                      <span className="text-cyan-400 font-semibold">{selectedDate.z}</span>
+                    </p>
+                    <p>
+                      <span className="text-gray-500">Position:</span> Week {selectedDate.x + 1},
+                      Day {selectedDate.y + 1}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedDate(null)}
+                  className="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Empty State */}
+      {!isLoading && !error && contributions.length === 0 && (
+        <div className="max-w-7xl mx-auto text-center py-20">
+          <div className="text-gray-400 text-lg mb-4">No contribution data available</div>
+          <p className="text-gray-500">
+            Make sure to set your GitHub username in the environment variables
+          </p>
+        </div>
+      )}
+    </section>
   );
 }
 
 /**
- * GitHub section component
- * Displays GitHub contribution terrain and statistics
+ * Stat Card Component
  */
-export function GitHubSection() {
-  const [viewMode, setViewMode] = useState<'terrain' | 'stats'>('terrain');
-  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'your-username';
-  const token = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+interface StatCardProps {
+  label: string;
+  value: string;
+  color: 'cyan' | 'purple' | 'green' | 'orange';
+}
 
-  const { contributions, isLoading, error } = useGithubData({
-    username,
-    token,
-    enabled: true,
-  });
-
-  const { stats, isLoading: statsLoading } = useGithubStats({
-    username,
-    token,
-    enabled: true,
-  });
-
-  if (isLoading || statsLoading) {
-    return (
-      <section className="min-h-screen py-20 px-4 md:px-8 flex items-center justify-center">
-        <LoadingSpinner size="lg" />
-      </section>
-    );
-  }
-
-  if (error) {
-    return (
-      <section className="min-h-screen py-20 px-4 md:px-8 flex items-center justify-center">
-        <div className="glass-panel p-8 rounded-lg text-center">
-          <Github size={48} className="mx-auto mb-4 text-gray-400" />
-          <h2 className="text-2xl font-bold mb-2">GitHub Data Unavailable</h2>
-          <p className="text-gray-600 dark:text-gray-400">
-            {error.message || 'Unable to fetch GitHub data. Please check your configuration.'}
-          </p>
-        </div>
-      </section>
-    );
-  }
+function StatCard({ label, value, color }: StatCardProps) {
+  const colorClasses = {
+    cyan: 'from-cyan-500/20 to-cyan-600/20 border-cyan-500/30 text-cyan-400',
+    purple: 'from-purple-500/20 to-purple-600/20 border-purple-500/30 text-purple-400',
+    green: 'from-green-500/20 to-green-600/20 border-green-500/30 text-green-400',
+    orange: 'from-orange-500/20 to-orange-600/20 border-orange-500/30 text-orange-400',
+  };
 
   return (
-    <section className="min-h-screen py-20 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-neon-mint to-neon-purple bg-clip-text text-transparent">
-            GitHub Activity
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Explore my contribution history and coding activity through interactive visualizations
-          </p>
-        </motion.div>
-
-        {/* View mode toggle */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex justify-center mb-8"
-        >
-          <div className="glass-panel p-1 rounded-lg inline-flex">
-            <button
-              onClick={() => setViewMode('terrain')}
-              className={`px-6 py-2 rounded-md transition-all ${
-                viewMode === 'terrain'
-                  ? 'bg-neon-mint text-black font-semibold'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-              }`}
-            >
-              3D Terrain
-            </button>
-            <button
-              onClick={() => setViewMode('stats')}
-              className={`px-6 py-2 rounded-md transition-all ${
-                viewMode === 'stats'
-                  ? 'bg-neon-mint text-black font-semibold'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
-              }`}
-            >
-              Statistics
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Content */}
-        {viewMode === 'terrain' ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="h-[600px] rounded-lg overflow-hidden glass-panel"
-          >
-            <GitHubTerrain contributions={contributions} />
-          </motion.div>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-          >
-            <StatCard
-              icon={<GitCommit size={24} />}
-              label="Total Commits"
-              value={stats.totalCommits}
-              color="text-neon-mint"
-            />
-            <StatCard
-              icon={<GitPullRequest size={24} />}
-              label="Pull Requests"
-              value={stats.totalPullRequests}
-              color="text-neon-purple"
-            />
-            <StatCard
-              icon={<AlertCircle size={24} />}
-              label="Issues"
-              value={stats.totalIssues}
-              color="text-neon-pink"
-            />
-            <StatCard
-              icon={<Github size={24} />}
-              label="Repositories"
-              value={stats.totalRepositories}
-              color="text-neon-blue"
-            />
-            <StatCard
-              icon={<Star size={24} />}
-              label="Total Stars"
-              value={stats.totalStars}
-              color="text-yellow-400"
-            />
-            <StatCard
-              icon={<GitFork size={24} />}
-              label="Total Forks"
-              value={stats.totalForks}
-              color="text-neon-cyan"
-            />
-          </motion.div>
-        )}
-
-        {/* Total contributions summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-8 text-center"
-        >
-          <div className="glass-panel p-6 rounded-lg inline-block">
-            <p className="text-gray-600 dark:text-gray-400 mb-2">Total Contributions (Last Year)</p>
-            <p className="text-4xl font-bold text-neon-mint">{contributions.length}</p>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <div
+      className={`bg-gradient-to-br ${colorClasses[color]} border rounded-lg p-6 backdrop-blur-sm`}
+    >
+      <div className="text-3xl font-bold mb-2">{value}</div>
+      <div className="text-sm text-gray-400">{label}</div>
+    </div>
   );
 }

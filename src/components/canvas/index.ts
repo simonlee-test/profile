@@ -6,3 +6,4 @@ export { HeroScene } from './HeroScene';
 export { NeuralTree } from './NeuralTree';
 export { FiberOpticTrunk } from './FiberOpticTrunk';
 export { ParticleLeaves } from './ParticleLeaves';
+export { GitHubTerrain, OptimizedGitHubTerrain } from './GitHubTerrain';
