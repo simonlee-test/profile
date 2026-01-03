@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="treeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#cardGradient)"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.1">
+    <line x1="0" y1="0" x2="1200" y2="0" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="0" y1="105" x2="1200" y2="105" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="0" y1="210" x2="1200" y2="210" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="0" y1="315" x2="1200" y2="315" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="0" y1="420" x2="1200" y2="420" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="0" y1="525" x2="1200" y2="525" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="0" y1="630" x2="1200" y2="630" stroke="#00FFCC" stroke-width="1"/>
+    
+    <line x1="0" y1="0" x2="0" y2="630" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="630" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="630" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="630" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="630" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="630" stroke="#00FFCC" stroke-width="1"/>
+    <line x1="1200" y1="0" x2="1200" y2="630" stroke="#00FFCC" stroke-width="1"/>
+  </g>
+  
+  <!-- Neural Tree Illustration -->
+  <g transform="translate(600, 315)" filter="url(#glow)">
+    <!-- Trunk -->
+    <path d="M0 -200 Q-20 -100 0 0 Q20 100 0 200" 
+          stroke="url(#treeGradient)" 
+          stroke-width="20" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <!-- Branches -->
+    <path d="M0 -150 Q-80 -120 -120 -80" 
+          stroke="url(#treeGradient)" 
+          stroke-width="12" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <path d="M0 -100 Q80 -70 120 -30" 
+          stroke="url(#treeGradient)" 
+          stroke-width="12" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <path d="M0 -50 Q-60 -20 -90 20" 
+          stroke="url(#treeGradient)" 
+          stroke-width="12" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <path d="M0 0 Q60 30 90 70" 
+          stroke="url(#treeGradient)" 
+          stroke-width="12" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <path d="M0 50 Q-40 80 -60 120" 
+          stroke="url(#treeGradient)" 
+          stroke-width="12" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <path d="M0 100 Q40 130 60 170" 
+          stroke="url(#treeGradient)" 
+          stroke-width="12" 
+          fill="none" 
+          stroke-linecap="round"/>
+    
+    <!-- Neural nodes -->
+    <circle cx="0" cy="-200" r="25" fill="#00FFCC"/>
+    <circle cx="-120" cy="-80" r="20" fill="#00FFCC"/>
+    <circle cx="120" cy="-30" r="20" fill="#00FFCC"/>
+    <circle cx="-90" cy="20" r="20" fill="#00FFCC"/>
+    <circle cx="90" cy="70" r="20" fill="#00FFCC"/>
+    <circle cx="-60" cy="120" r="20" fill="#00FFCC"/>
+    <circle cx="60" cy="170" r="20" fill="#00FFCC"/>
+    <circle cx="0" cy="200" r="25" fill="#32CD32"/>
+    
+    <!-- Small particles -->
+    <circle cx="-60" cy="-140" r="10" fill="#7000FF" opacity="0.8"/>
+    <circle cx="60" cy="-90" r="10" fill="#7000FF" opacity="0.8"/>
+    <circle cx="-30" cy="-40" r="10" fill="#7000FF" opacity="0.8"/>
+    <circle cx="30" cy="10" r="10" fill="#7000FF" opacity="0.8"/>
+    <circle cx="-20" cy="60" r="10" fill="#7000FF" opacity="0.8"/>
+    <circle cx="20" cy="110" r="10" fill="#7000FF" opacity="0.8"/>
+  </g>
+  
+  <!-- Title text placeholder -->
+  <text x="600" y="580" 
+        text-anchor="middle" 
+        font-family="Arial, sans-serif" 
+        font-size="32" 
+        font-weight="bold" 
+        fill="#00FFCC"
+        filter="url(#glow)">
+    Neural Digital Garden
+  </text>
+  
+  <!-- Subtitle text placeholder -->
+  <text x="600" y="615" 
+        text-anchor="middle" 
+        font-family="Arial, sans-serif" 
+        font-size="18" 
+        fill="#7000FF">
+    Portfolio & Blog
+  </text>
+</svg>

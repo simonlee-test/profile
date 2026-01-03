@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="400" viewBox="0 0 100 400">
+  <defs>
+    <linearGradient id="rootGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#32CD32;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00FFCC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main root trunk -->
+  <path d="M50 0 Q45 50 50 100 Q55 150 50 200 Q45 250 50 300 Q55 350 50 400" 
+        stroke="url(#rootGradient)" 
+        stroke-width="3" 
+        fill="none" 
+        filter="url(#glow)"/>
+  
+  <!-- Branch 1 -->
+  <path d="M50 80 Q30 100 20 120" 
+        stroke="url(#rootGradient)" 
+        stroke-width="2" 
+        fill="none" 
+        filter="url(#glow)"/>
+  
+  <!-- Branch 2 -->
+  <path d="M50 160 Q70 180 80 200" 
+        stroke="url(#rootGradient)" 
+        stroke-width="2" 
+        fill="none" 
+        filter="url(#glow)"/>
+  
+  <!-- Branch 3 -->
+  <path d="M50 240 Q25 260 15 280" 
+        stroke="url(#rootGradient)" 
+        stroke-width="2" 
+        fill="none" 
+        filter="url(#glow)"/>
+  
+  <!-- Branch 4 -->
+  <path d="M50 320 Q75 340 85 360" 
+        stroke="url(#rootGradient)" 
+        stroke-width="2" 
+        fill="none" 
+        filter="url(#glow)"/>
+  
+  <!-- Small rootlets -->
+  <path d="M20 120 Q15 130 18 140" 
+        stroke="url(#rootGradient)" 
+        stroke-width="1" 
+        fill="none" 
+        opacity="0.7"/>
+  
+  <path d="M80 200 Q85 210 82 220" 
+        stroke="url(#rootGradient)" 
+        stroke-width="1" 
+        fill="none" 
+        opacity="0.7"/>
+  
+  <path d="M15 280 Q10 290 13 300" 
+        stroke="url(#rootGradient)" 
+        stroke-width="1" 
+        fill="none" 
+        opacity="0.7"/>
+  
+  <path d="M85 360 Q90 370 87 380" 
+        stroke="url(#rootGradient)" 
+        stroke-width="1" 
+        fill="none" 
+        opacity="0.7"/>
+  
+  <!-- Glowing nodes at branch points -->
+  <circle cx="50" cy="80" r="4" fill="#00FFCC" filter="url(#glow)"/>
+  <circle cx="50" cy="160" r="4" fill="#00FFCC" filter="url(#glow)"/>
+  <circle cx="50" cy="240" r="4" fill="#00FFCC" filter="url(#glow)"/>
+  <circle cx="50" cy="320" r="4" fill="#00FFCC" filter="url(#glow)"/>
+</svg>

@@ -1,0 +1,21 @@
+# Django Core
+Django>=5.2,<6.0
+djangorestframework>=3.15.0
+django-cors-headers>=4.4.0
+django-filter>=24.0
+
+# Celery for async tasks
+celery>=5.4.0
+redis>=5.0.0
+
+# Database
+psycopg2-binary>=2.9.0  # PostgreSQL for production
+
+# Image processing
+Pillow>=10.0.0
+
+# Security
+django-environ>=0.11.0
+
+# Development
+django-debug-toolbar>=4.4.0
