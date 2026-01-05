@@ -1,0 +1,320 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="blockchainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="blockchainGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#blockchainGradient)"/>
+  
+  <!-- Blockchain blocks -->
+  <g fill="url(#blockGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#blockchainGlow)">
+    <!-- Block 1 (Genesis) -->
+    <rect x="32" y="32" width="80" height="80" rx="4"/>
+    
+    <!-- Block 2 -->
+    <rect x="144" y="32" width="80" height="80" rx="4"/>
+    
+    <!-- Block 3 -->
+    <rect x="256" y="32" width="80" height="80" rx="4"/>
+    
+    <!-- Block 4 -->
+    <rect x="368" y="32" width="80" height="80" rx="4"/>
+    
+    <!-- Block 5 -->
+    <rect x="32" y="144" width="80" height="80" rx="4"/>
+    
+    <!-- Block 6 -->
+    <rect x="144" y="144" width="80" height="80" rx="4"/>
+    
+    <!-- Block 7 -->
+    <rect x="256" y="144" width="80" height="80" rx="4"/>
+    
+    <!-- Block 8 -->
+    <rect x="368" y="144" width="80" height="80" rx="4"/>
+    
+    <!-- Block 9 -->
+    <rect x="32" y="256" width="80" height="80" rx="4"/>
+    
+    <!-- Block 10 -->
+    <rect x="144" y="256" width="80" height="80" rx="4"/>
+    
+    <!-- Block 11 -->
+    <rect x="256" y="256" width="80" height="80" rx="4"/>
+    
+    <!-- Block 12 -->
+    <rect x="368" y="256" width="80" height="80" rx="4"/>
+    
+    <!-- Block 13 -->
+    <rect x="32" y="368" width="80" height="80" rx="4"/>
+    
+    <!-- Block 14 -->
+    <rect x="144" y="368" width="80" height="80" rx="4"/>
+    
+    <!-- Block 15 -->
+    <rect x="256" y="368" width="80" height="80" rx="4"/>
+    
+    <!-- Block 16 -->
+    <rect x="368" y="368" width="80" height="80" rx="4"/>
+  </g>
+  
+  <!-- Block connections (chain) -->
+  <g stroke="#7000FF" stroke-width="2" fill="none" filter="url(#blockchainGlow)">
+    <!-- Horizontal connections -->
+    <line x1="112" y1="72" x2="144" y2="72"/>
+    <line x1="224" y1="72" x2="256" y2="72"/>
+    <line x1="336" y1="72" x2="368" y2="72"/>
+    
+    <line x1="112" y1="184" x2="144" y2="184"/>
+    <line x1="224" y1="184" x2="256" y2="184"/>
+    <line x1="336" y1="184" x2="368" y2="184"/>
+    
+    <line x1="112" y1="296" x2="144" y2="296"/>
+    <line x1="224" y1="296" x2="256" y2="296"/>
+    <line x1="336" y1="296" x2="368" y2="296"/>
+    
+    <line x1="112" y1="408" x2="144" y2="408"/>
+    <line x1="224" y1="408" x2="256" y2="408"/>
+    <line x1="336" y1="408" x2="368" y2="408"/>
+    
+    <!-- Vertical connections -->
+    <line x1="72" y1="112" x2="72" y2="144"/>
+    <line x1="72" y1="224" x2="72" y2="256"/>
+    <line x1="72" y1="336" x2="72" y2="368"/>
+    
+    <line x1="184" y1="112" x2="184" y2="144"/>
+    <line x1="184" y1="224" x2="184" y2="256"/>
+    <line x1="184" y1="336" x2="184" y2="368"/>
+    
+    <line x1="296" y1="112" x2="296" y2="144"/>
+    <line x1="296" y1="224" x2="296" y2="256"/>
+    <line x1="296" y1="336" x2="296" y2="368"/>
+    
+    <line x1="408" y1="112" x2="408" y2="144"/>
+    <line x1="408" y1="224" x2="408" y2="256"/>
+    <line x1="408" y1="336" x2="408" y2="368"/>
+  </g>
+  
+  <!-- Block hash indicators -->
+  <g fill="#00FFCC" filter="url(#blockchainGlow)">
+    <circle cx="72" cy="72" r="6"/>
+    <circle cx="184" cy="72" r="6"/>
+    <circle cx="296" cy="72" r="6"/>
+    <circle cx="408" cy="72" r="6"/>
+    
+    <circle cx="72" cy="184" r="6"/>
+    <circle cx="184" cy="184" r="6"/>
+    <circle cx="296" cy="184" r="6"/>
+    <circle cx="408" cy="184" r="6"/>
+    
+    <circle cx="72" cy="296" r="6"/>
+    <circle cx="184" cy="296" r="6"/>
+    <circle cx="296" cy="296" r="6"/>
+    <circle cx="408" cy="296" r="6"/>
+    
+    <circle cx="72" cy="408" r="6"/>
+    <circle cx="184" cy="408" r="6"/>
+    <circle cx="296" cy="408" r="6"/>
+    <circle cx="408" cy="408" r="6"/>
+  </g>
+  
+  <!-- Block numbers -->
+  <g fill="#050505" font-family="monospace" font-size="12" text-anchor="middle" filter="url(#blockchainGlow)">
+    <text x="72" y="76">0</text>
+    <text x="184" y="76">1</text>
+    <text x="296" y="76">2</text>
+    <text x="408" y="76">3</text>
+    
+    <text x="72" y="188">4</text>
+    <text x="184" y="188">5</text>
+    <text x="296" y="188">6</text>
+    <text x="408" y="188">7</text>
+    
+    <text x="72" y="300">8</text>
+    <text x="184" y="300">9</text>
+    <text x="296" y="300">10</text>
+    <text x="408" y="300">11</text>
+    
+    <text x="72" y="412">12</text>
+    <text x="184" y="412">13</text>
+    <text x="296" y="412">14</text>
+    <text x="408" y="412">15</text>
+  </g>
+  
+  <!-- Transaction indicators -->
+  <g fill="#32CD32" filter="url(#blockchainGlow)">
+    <rect x="48" y="48" width="8" height="8" rx="1"/>
+    <rect x="88" y="48" width="8" height="8" rx="1"/>
+    <rect x="48" y="88" width="8" height="8" rx="1"/>
+    <rect x="88" y="88" width="8" height="8" rx="1"/>
+    
+    <rect x="160" y="48" width="8" height="8" rx="1"/>
+    <rect x="200" y="48" width="8" height="8" rx="1"/>
+    <rect x="160" y="88" width="8" height="8" rx="1"/>
+    <rect x="200" y="88" width="8" height="8" rx="1"/>
+    
+    <rect x="272" y="48" width="8" height="8" rx="1"/>
+    <rect x="312" y="48" width="8" height="8" rx="1"/>
+    <rect x="272" y="88" width="8" height="8" rx="1"/>
+    <rect x="312" y="88" width="8" height="8" rx="1"/>
+    
+    <rect x="384" y="48" width="8" height="8" rx="1"/>
+    <rect x="424" y="48" width="8" height="8" rx="1"/>
+    <rect x="384" y="88" width="8" height="8" rx="1"/>
+    <rect x="424" y="88" width="8" height="8" rx="1"/>
+    
+    <rect x="48" y="160" width="8" height="8" rx="1"/>
+    <rect x="88" y="160" width="8" height="8" rx="1"/>
+    <rect x="48" y="200" width="8" height="8" rx="1"/>
+    <rect x="88" y="200" width="8" height="8" rx="1"/>
+    
+    <rect x="160" y="160" width="8" height="8" rx="1"/>
+    <rect x="200" y="160" width="8" height="8" rx="1"/>
+    <rect x="160" y="200" width="8" height="8" rx="1"/>
+    <rect x="200" y="200" width="8" height="8" rx="1"/>
+    
+    <rect x="272" y="160" width="8" height="8" rx="1"/>
+    <rect x="312" y="160" width="8" height="8" rx="1"/>
+    <rect x="272" y="200" width="8" height="8" rx="1"/>
+    <rect x="312" y="200" width="8" height="8" rx="1"/>
+    
+    <rect x="384" y="160" width="8" height="8" rx="1"/>
+    <rect x="424" y="160" width="8" height="8" rx="1"/>
+    <rect x="384" y="200" width="8" height="8" rx="1"/>
+    <rect x="424" y="200" width="8" height="8" rx="1"/>
+    
+    <rect x="48" y="272" width="8" height="8" rx="1"/>
+    <rect x="88" y="272" width="8" height="8" rx="1"/>
+    <rect x="48" y="312" width="8" height="8" rx="1"/>
+    <rect x="88" y="312" width="8" height="8" rx="1"/>
+    
+    <rect x="160" y="272" width="8" height="8" rx="1"/>
+    <rect x="200" y="272" width="8" height="8" rx="1"/>
+    <rect x="160" y="312" width="8" height="8" rx="1"/>
+    <rect x="200" y="312" width="8" height="8" rx="1"/>
+    
+    <rect x="272" y="272" width="8" height="8" rx="1"/>
+    <rect x="312" y="272" width="8" height="8" rx="1"/>
+    <rect x="272" y="312" width="8" height="8" rx="1"/>
+    <rect x="312" y="312" width="8" height="8" rx="1"/>
+    
+    <rect x="384" y="272" width="8" height="8" rx="1"/>
+    <rect x="424" y="272" width="8" height="8" rx="1"/>
+    <rect x="384" y="312" width="8" height="8" rx="1"/>
+    <rect x="424" y="312" width="8" height="8" rx="1"/>
+    
+    <rect x="48" y="384" width="8" height="8" rx="1"/>
+    <rect x="88" y="384" width="8" height="8" rx="1"/>
+    <rect x="48" y="424" width="8" height="8" rx="1"/>
+    <rect x="88" y="424" width="8" height="8" rx="1"/>
+    
+    <rect x="160" y="384" width="8" height="8" rx="1"/>
+    <rect x="200" y="384" width="8" height="8" rx="1"/>
+    <rect x="160" y="424" width="8" height="8" rx="1"/>
+    <rect x="200" y="424" width="8" height="8" rx="1"/>
+    
+    <rect x="272" y="384" width="8" height="8" rx="1"/>
+    <rect x="312" y="384" width="8" height="8" rx="1"/>
+    <rect x="272" y="424" width="8" height="8" rx="1"/>
+    <rect x="312" y="424" width="8" height="8" rx="1"/>
+    
+    <rect x="384" y="384" width="8" height="8" rx="1"/>
+    <rect x="424" y="384" width="8" height="8" rx="1"/>
+    <rect x="384" y="424" width="8" height="8" rx="1"/>
+    <rect x="424" y="424" width="8" height="8" rx="1"/>
+  </g>
+  
+  <!-- Merkle tree indicators -->
+  <g fill="#7000FF" filter="url(#blockchainGlow)">
+    <circle cx="56" cy="56" r="3"/>
+    <circle cx="88" cy="56" r="3"/>
+    <circle cx="56" cy="88" r="3"/>
+    <circle cx="88" cy="88" r="3"/>
+    
+    <circle cx="168" cy="56" r="3"/>
+    <circle cx="200" cy="56" r="3"/>
+    <circle cx="168" cy="88" r="3"/>
+    <circle cx="200" cy="88" r="3"/>
+    
+    <circle cx="280" cy="56" r="3"/>
+    <circle cx="312" cy="56" r="3"/>
+    <circle cx="280" cy="88" r="3"/>
+    <circle cx="312" cy="88" r="3"/>
+    
+    <circle cx="392" cy="56" r="3"/>
+    <circle cx="424" cy="56" r="3"/>
+    <circle cx="392" cy="88" r="3"/>
+    <circle cx="424" cy="88" r="3"/>
+  </g>
+  
+  <!-- Blockchain network nodes -->
+  <g fill="#00FFCC" filter="url(#blockchainGlow)">
+    <circle cx="128" cy="128" r="4"/>
+    <circle cx="240" cy="128" r="4"/>
+    <circle cx="352" cy="128" r="4"/>
+    <circle cx="464" cy="128" r="4"/>
+    
+    <circle cx="128" cy="240" r="4"/>
+    <circle cx="240" cy="240" r="4"/>
+    <circle cx="352" cy="240" r="4"/>
+    <circle cx="464" cy="240" r="4"/>
+    
+    <circle cx="128" cy="352" r="4"/>
+    <circle cx="240" cy="352" r="4"/>
+    <circle cx="352" cy="352" r="4"/>
+    <circle cx="464" cy="352" r="4"/>
+    
+    <circle cx="128" cy="464" r="4"/>
+    <circle cx="240" cy="464" r="4"/>
+    <circle cx="352" cy="464" r="4"/>
+    <circle cx="464" cy="464" r="4"/>
+  </g>
+  
+  <!-- Network connections -->
+  <g stroke="#32CD32" stroke-width="1" fill="none" filter="url(#blockchainGlow)">
+    <line x1="128" y1="128" x2="240" y2="128"/>
+    <line x1="240" y1="128" x2="352" y2="128"/>
+    <line x1="352" y1="128" x2="464" y2="128"/>
+    
+    <line x1="128" y1="240" x2="240" y2="240"/>
+    <line x1="240" y1="240" x2="352" y2="240"/>
+    <line x1="352" y1="240" x2="464" y2="240"/>
+    
+    <line x1="128" y1="352" x2="240" y2="352"/>
+    <line x1="240" y1="352" x2="352" y2="352"/>
+    <line x1="352" y1="352" x2="464" y2="352"/>
+    
+    <line x1="128" y1="464" x2="240" y2="464"/>
+    <line x1="240" y1="464" x2="352" y2="464"/>
+    <line x1="352" y1="464" x2="464" y2="464"/>
+    
+    <line x1="128" y1="128" x2="128" y2="240"/>
+    <line x1="128" y1="240" x2="128" y2="352"/>
+    <line x1="128" y1="352" x2="128" y2="464"/>
+    
+    <line x1="240" y1="128" x2="240" y2="240"/>
+    <line x1="240" y1="240" x2="240" y2="352"/>
+    <line x1="240" y1="352" x2="240" y2="464"/>
+    
+    <line x1="352" y1="128" x2="352" y2="240"/>
+    <line x1="352" y1="240" x2="352" y2="352"/>
+    <line x1="352" y1="352" x2="352" y2="464"/>
+    
+    <line x1="464" y1="128" x2="464" y2="240"/>
+    <line x1="464" y1="240" x2="464" y2="352"/>
+    <line x1="464" y1="352" x2="464" y2="464"/>
+  </g>
+</svg>

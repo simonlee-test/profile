@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="printGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="printerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="printGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#printGradient)"/>
+  
+  <!-- 3D printer frame -->
+  <g fill="url(#printerGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#printGlow)">
+    <rect x="96" y="64" width="320" height="384" rx="8"/>
+  </g>
+  
+  <!-- 3D printer build plate -->
+  <g fill="none" stroke="#7000FF" stroke-width="2" filter="url(#printGlow)">
+    <rect x="128" y="352" width="256" height="64" rx="4"/>
+  </g>
+  
+  <!-- 3D printer build plate grid -->
+  <g stroke="#00FFCC" stroke-width="0.5" fill="none" filter="url(#printGlow)">
+    <line x1="128" y1="368" x2="384" y2="368"/>
+    <line x1="128" y1="384" x2="384" y2="384"/>
+    <line x1="128" y1="400" x2="384" y2="400"/>
+    <line x1="160" y1="352" x2="160" y2="416"/>
+    <line x1="192" y1="352" x2="192" y2="416"/>
+    <line x1="224" y1="352" x2="224" y2="416"/>
+    <line x1="256" y1="352" x2="256" y2="416"/>
+    <line x1="288" y1="352" x2="288" y2="416"/>
+    <line x1="320" y1="352" x2="320" y2="416"/>
+    <line x1="352" y1="352" x2="352" y2="416"/>
+  </g>
+  
+  <!-- 3D printer extruder -->
+  <g fill="url(#printerGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#printGlow)">
+    <rect x="224" y="96" width="64" height="48" rx="4"/>
+  </g>
+  
+  <!-- 3D printer nozzle -->
+  <g fill="#32CD32" filter="url(#printGlow)">
+    <polygon points="256,144 248,160 264,160"/>
+  </g>
+  
+  <!-- 3D printer filament -->
+  <g fill="none" stroke="#7000FF" stroke-width="2" filter="url(#printGlow)">
+    <path d="M256 96 L256 64"/>
+    <path d="M256 64 L224 32"/>
+    <path d="M256 64 L288 32"/>
+  </g>
+  
+  <!-- 3D printer filament spool -->
+  <g fill="url(#printerGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#printGlow)">
+    <circle cx="224" cy="32" r="16"/>
+    <circle cx="288" cy="32" r="16"/>
+  </g>
+  
+  <!-- 3D printer filament indicators -->
+  <g fill="#32CD32" filter="url(#printGlow)">
+    <circle cx="224" cy="32" r="8"/>
+    <circle cx="288" cy="32" r="8"/>
+  </g>
+  
+  <!-- 3D printer printed object -->
+  <g fill="url(#printerGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#printGlow)">
+    <rect x="192" y="256" width="32" height="32" rx="2"/>
+    <rect x="224" y="224" width="32" height="64" rx="2"/>
+    <rect x="256" y="256" width="32" height="32" rx="2"/>
+    <rect x="288" y="288" width="32" height="32" rx="2"/>
+  </g>
+  
+  <!-- 3D printer printed object layers -->
+  <g fill="none" stroke="#7000FF" stroke-width="0.5" filter="url(#printGlow)">
+    <line x1="192" y1="264" x2="224" y2="264"/>
+    <line x1="192" y1="272" x2="224" y2="272"/>
+    <line x1="192" y1="280" x2="224" y2="280"/>
+    <line x1="224" y1="232" x2="256" y2="232"/>
+    <line x1="224" y1="240" x2="256" y2="240"/>
+    <line x1="224" y1="248" x2="256" y2="248"/>
+    <line x1="224" y1="256" x2="256" y2="256"/>
+    <line x1="224" y1="264" x2="256" y2="264"/>
+    <line x1="224" y1="272" x2="256" y2="272"/>
+    <line x1="224" y1="280" x2="256" y2="280"/>
+    <line x1="256" y1="264" x2="288" y2="264"/>
+    <line x1="256" y1="272" x2="288" y2="272"/>
+    <line x1="256" y1="280" x2="288" y2="280"/>
+    <line x1="288" y1="296" x2="320" y2="296"/>
+    <line x1="288" y1="304" x2="320" y2="304"/>
+    <line x1="288" y1="312" x2="320" y2="312"/>
+  </g>
+  
+  <!-- 3D printer print path -->
+  <g stroke="#32CD32" stroke-width="1" fill="none" filter="url(#printGlow)">
+    <path d="M208 256 L208 288 L240 288 L240 256"/>
+    <path d="M240 224 L240 288 L272 288 L272 256"/>
+    <path d="M272 256 L272 288 L304 288 L304 320"/>
+  </g>
+  
+  <!-- 3D printer Z-axis -->
+  <g fill="none" stroke="#00FFCC" stroke-width="2" filter="url(#printGlow)">
+    <line x1="256" y1="144" x2="256" y2="352"/>
+  </g>
+  
+  <!-- 3D printer Z-axis indicators -->
+  <g fill="#7000FF" filter="url(#printGlow)">
+    <circle cx="256" cy="160" r="4"/>
+    <circle cx="256" cy="192" r="4"/>
+    <circle cx="256" cy="224" r="4"/>
+    <circle cx="256" cy="256" r="4"/>
+    <circle cx="256" cy="288" r="4"/>
+    <circle cx="256" cy="320" r="4"/>
+  </g>
+  
+  <!-- 3D printer X-axis -->
+  <g fill="none" stroke="#00FFCC" stroke-width="2" filter="url(#printGlow)">
+    <line x1="128" y1="120" x2="384" y2="120"/>
+  </g>
+  
+  <!-- 3D printer X-axis indicators -->
+  <g fill="#7000FF" filter="url(#printGlow)">
+    <circle cx="144" cy="120" r="4"/>
+    <circle cx="176" cy="120" r="4"/>
+    <circle cx="208" cy="120" r="4"/>
+    <circle cx="240" cy="120" r="4"/>
+    <circle cx="272" cy="120" r="4"/>
+    <circle cx="304" cy="120" r="4"/>
+    <circle cx="336" cy="120" r="4"/>
+    <circle cx="368" cy="120" r="4"/>
+  </g>
+  
+  <!-- 3D printer Y-axis -->
+  <g fill="none" stroke="#00FFCC" stroke-width="2" filter="url(#printGlow)">
+    <line x1="112" y1="144" x2="112" y2="352"/>
+  </g>
+  
+  <!-- 3D printer Y-axis indicators -->
+  <g fill="#7000FF" filter="url(#printGlow)">
+    <circle cx="112" cy="160" r="4"/>
+    <circle cx="112" cy="192" r="4"/>
+    <circle cx="112" cy="224" r="4"/>
+    <circle cx="112" cy="256" r="4"/>
+    <circle cx="112" cy="288" r="4"/>
+    <circle cx="112" cy="320" r="4"/>
+  </g>
+  
+  <!-- 3D printer control panel -->
+  <g fill="url(#printerGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#printGlow)">
+    <rect x="384" y="96" width="32" height="64" rx="4"/>
+  </g>
+  
+  <!-- 3D printer control buttons -->
+  <g fill="#32CD32" filter="url(#printGlow)">
+    <circle cx="400" cy="112" r="4"/>
+    <circle cx="400" cy="128" r="4"/>
+    <circle cx="400" cy="144" r="4"/>
+  </g>
+  
+  <!-- 3D printer display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#printGlow)">
+    <rect x="384" y="168" width="32" height="32" rx="2"/>
+  </g>
+  
+  <!-- 3D printer display content -->
+  <g fill="#00FFCC" font-family="monospace" font-size="6" text-anchor="middle" filter="url(#printGlow)">
+    <text x="400" y="180">PRINT</text>
+    <text x="400" y="188">45%</text>
+  </g>
+  
+  <!-- 3D printer temperature indicators -->
+  <g fill="#32CD32" filter="url(#printGlow)">
+    <rect x="384" y="208" width="32" height="8" rx="2"/>
+    <rect x="384" y="224" width="32" height="8" rx="2"/>
+  </g>
+  
+  <!-- 3D printer temperature labels -->
+  <g fill="#00FFCC" font-family="monospace" font-size="4" text-anchor="middle" filter="url(#printGlow)">
+    <text x="400" y="204">NOZ</text>
+    <text x="400" y="220">BED</text>
+  </g>
+  
+  <!-- 3D printer cooling fan -->
+  <g fill="url(#printerGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#printGlow)">
+    <circle cx="400" cy="256" r="16"/>
+  </g>
+  
+  <!-- 3D printer fan blades -->
+  <g fill="#7000FF" filter="url(#printGlow)">
+    <rect x="392" y="248" width="16" height="4" rx="1"/>
+    <rect x="392" y="260" width="16" height="4" rx="1"/>
+    <rect x="400" y="240" width="4" height="16" rx="1"/>
+    <rect x="400" y="256" width="4" height="16" rx="1"/>
+  </g>
+  
+  <!-- 3D printer fan center -->
+  <g fill="#32CD32" filter="url(#printGlow)">
+    <circle cx="400" cy="256" r="4"/>
+  </g>
+  
+  <!-- 3D printer status indicators -->
+  <g fill="#00FFCC" filter="url(#printGlow)">
+    <circle cx="400" cy="288" r="4"/>
+    <circle cx="400" cy="304" r="4"/>
+    <circle cx="400" cy="320" r="4"/>
+  </g>
+  
+  <!-- 3D printer connection lines -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" filter="url(#printGlow)">
+    <line x1="384" y1="120" x2="352" y2="120"/>
+    <line x1="384" y1="256" x2="352" y2="256"/>
+  </g>
+  
+  <!-- 3D printer data display -->
+  <g fill="#32CD32" font-family="monospace" font-size="6" text-anchor="middle" filter="url(#printGlow)">
+    <text x="256" y="448">3D PRINTER</text>
+    <text x="256" y="456">PRINTING</text>
+  </g>
+  
+  <!-- 3D printer progress bar -->
+  <g fill="none" stroke="#00FFCC" stroke-width="1" filter="url(#printGlow)">
+    <rect x="192" y="464" width="128" height="8" rx="2"/>
+  </g>
+  
+  <!-- 3D printer progress fill -->
+  <g fill="#7000FF" filter="url(#printGlow)">
+    <rect x="192" y="464" width="64" height="8" rx="2"/>
+  </g>
+</svg>

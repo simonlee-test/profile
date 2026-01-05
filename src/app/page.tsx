@@ -2,6 +2,7 @@
 
 import { Suspense, lazy, useState } from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
@@ -12,6 +13,8 @@ import { Projects } from '@/components/Projects';
 import { GitHubSection } from '@/components/GitHubSection';
 import Contact from '@/components/Contact';
 import { timelineData, skillsData, projectsData } from '@/data/portfolioData';
+import { useBlogPosts } from '@/hooks/useBlogData';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 // Lazy load 3D components for better performance
 const HeroScene = lazy(() =>
@@ -215,6 +218,11 @@ export default function Home() {
           <GitHubSection />
         </section>
 
+        {/* Blog Section Preview */}
+        <section id="blog" className="bg-gradient-to-b from-[#0a0a0a] to-[#050505]">
+          <BlogPreview />
+        </section>
+
         {/* Contact Section */}
         <section id="contact" className="bg-gradient-to-b from-[#0a0a0a] to-[#050505]">
           <Contact />
@@ -236,5 +244,116 @@ export default function Home() {
         </footer>
       </main>
     </ErrorBoundary>
+  );
+}
+
+/**
+ * BlogPreview - Preview of latest blog posts
+ */
+function BlogPreview() {
+  const { posts, loading } = useBlogPosts({ status: 'published', is_featured: true });
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
+
+  return (
+    <div className="max-w-6xl mx-auto py-20 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <span className="bg-gradient-to-r from-neon-mint to-circuit-purple bg-clip-text text-transparent">
+            Digital Garden
+          </span>
+        </h2>
+        <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          Thoughts, tutorials, and explorations in software development and technology
+        </p>
+      </motion.div>
+
+      {loading ? (
+        <div className="flex items-center justify-center py-20">
+          <div className="w-12 h-12 border-4 border-neon-mint/30 border-t-neon-mint rounded-full animate-spin" />
+        </div>
+      ) : posts.length === 0 ? (
+        <div className="glass-panel rounded-2xl p-8 text-center">
+          <p className="text-gray-400">No blog posts yet. Check back soon!</p>
+        </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {posts.slice(0, 3).map((post, index) => (
+              <motion.article
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-panel rounded-2xl overflow-hidden hover:border-neon-mint/30 transition-all duration-300 group"
+              >
+                {post.featured_image && (
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={post.featured_image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  {post.category_name && (
+                    <span className="inline-block px-3 py-1 bg-circuit-purple/20 text-circuit-purple text-xs rounded-full mb-3">
+                      {post.category_name}
+                    </span>
+                  )}
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-neon-mint transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
+                  <div className="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-white/10">
+                    <div className="flex items-center gap-4">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {formatDate(post.published_at || post.created_at)}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {post.reading_time} min read
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-neon-mint/20 text-neon-mint rounded-full hover:bg-neon-mint/30 transition-colors"
+            >
+              <span>View All Posts</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </>
+      )}
+    </div>
   );
 }

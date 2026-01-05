@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="molecularGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="atomGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#32CD32;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:0" />
+    </radialGradient>
+    <filter id="molecularBlur">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#molecularGradient)"/>
+  
+  <!-- Molecular bonds -->
+  <g stroke="#00FFCC" stroke-width="3" fill="none" filter="url(#molecularBlur)">
+    <!-- Central molecule -->
+    <line x1="256" y1="256" x2="200" y2="200"/>
+    <line x1="256" y1="256" x2="312" y2="200"/>
+    <line x1="256" y1="256" x2="200" y2="312"/>
+    <line x1="256" y1="256" x2="312" y2="312"/>
+    
+    <!-- Outer connections -->
+    <line x1="200" y1="200" x2="150" y2="150"/>
+    <line x1="200" y1="200" x2="150" y2="250"/>
+    <line x1="312" y1="200" x2="362" y2="150"/>
+    <line x1="312" y1="200" x2="362" y2="250"/>
+    <line x1="200" y1="312" x2="150" y2="262"/>
+    <line x1="200" y1="312" x2="150" y2="362"/>
+    <line x1="312" y1="312" x2="362" y2="262"/>
+    <line x1="312" y1="312" x2="362" y2="362"/>
+    
+    <!-- Extended bonds -->
+    <line x1="150" y1="150" x2="100" y2="100"/>
+    <line x1="150" y1="150" x2="100" y2="200"/>
+    <line x1="362" y1="150" x2="412" y2="100"/>
+    <line x1="362" y1="150" x2="412" y2="200"/>
+    <line x1="150" y1="362" x2="100" y2="312"/>
+    <line x1="150" y1="362" x2="100" y2="412"/>
+    <line x1="362" y1="362" x2="412" y2="312"/>
+    <line x1="362" y1="362" x2="412" y2="412"/>
+  </g>
+  
+  <!-- Double bonds -->
+  <g stroke="#7000FF" stroke-width="2" fill="none" filter="url(#molecularBlur)">
+    <line x1="252" y1="252" x2="204" y2="204"/>
+    <line x1="260" y1="260" x2="308" y2="308"/>
+  </g>
+  
+  <!-- Atoms -->
+  <g filter="url(#molecularBlur)">
+    <!-- Central atom -->
+    <circle cx="256" cy="256" r="20" fill="#32CD32"/>
+    <circle cx="256" cy="256" r="25" fill="url(#atomGlow)"/>
+    
+    <!-- Primary atoms -->
+    <circle cx="200" cy="200" r="15" fill="#00FFCC"/>
+    <circle cx="312" cy="200" r="15" fill="#00FFCC"/>
+    <circle cx="200" cy="312" r="15" fill="#00FFCC"/>
+    <circle cx="312" cy="312" r="15" fill="#00FFCC"/>
+    
+    <!-- Secondary atoms -->
+    <circle cx="150" cy="150" r="12" fill="#7000FF"/>
+    <circle cx="150" cy="250" r="12" fill="#7000FF"/>
+    <circle cx="362" cy="150" r="12" fill="#7000FF"/>
+    <circle cx="362" cy="250" r="12" fill="#7000FF"/>
+    <circle cx="150" cy="262" r="12" fill="#7000FF"/>
+    <circle cx="150" cy="362" r="12" fill="#7000FF"/>
+    <circle cx="362" cy="262" r="12" fill="#7000FF"/>
+    <circle cx="362" cy="362" r="12" fill="#7000FF"/>
+    
+    <!-- Tertiary atoms -->
+    <circle cx="100" cy="100" r="8" fill="#00FFCC"/>
+    <circle cx="100" cy="200" r="8" fill="#00FFCC"/>
+    <circle cx="412" cy="100" r="8" fill="#00FFCC"/>
+    <circle cx="412" cy="200" r="8" fill="#00FFCC"/>
+    <circle cx="100" cy="312" r="8" fill="#00FFCC"/>
+    <circle cx="100" cy="412" r="8" fill="#00FFCC"/>
+    <circle cx="412" cy="312" r="8" fill="#00FFCC"/>
+    <circle cx="412" cy="412" r="8" fill="#00FFCC"/>
+  </g>
+  
+  <!-- Electron orbits -->
+  <g stroke="#00FFCC" stroke-width="1" fill="none" opacity="0.3">
+    <ellipse cx="256" cy="256" rx="60" ry="30" transform="rotate(0 256 256)"/>
+    <ellipse cx="256" cy="256" rx="60" ry="30" transform="rotate(60 256 256)"/>
+    <ellipse cx="256" cy="256" rx="60" ry="30" transform="rotate(120 256 256)"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <g fill="#32CD32" filter="url(#molecularBlur)" opacity="0.5">
+    <circle cx="80" cy="80" r="3"/>
+    <circle cx="160" cy="80" r="3"/>
+    <circle cx="240" cy="80" r="3"/>
+    <circle cx="320" cy="80" r="3"/>
+    <circle cx="400" cy="80" r="3"/>
+    <circle cx="80" cy="160" r="3"/>
+    <circle cx="432" cy="160" r="3"/>
+    <circle cx="80" cy="240" r="3"/>
+    <circle cx="432" cy="240" r="3"/>
+    <circle cx="80" cy="320" r="3"/>
+    <circle cx="432" cy="320" r="3"/>
+    <circle cx="80" cy="400" r="3"/>
+    <circle cx="160" cy="432" r="3"/>
+    <circle cx="240" cy="432" r="3"/>
+    <circle cx="320" cy="432" r="3"/>
+    <circle cx="400" cy="432" r="3"/>
+  </g>
+</svg>

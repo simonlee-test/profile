@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="cyberGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="cyberGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#cyberGradient)"/>
+  
+  <!-- Central shield -->
+  <g fill="url(#shieldGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#cyberGlow)">
+    <path d="M256 64 L416 128 L416 256 C416 352 352 432 256 448 C160 432 96 352 96 256 L96 128 Z"/>
+  </g>
+  
+  <!-- Shield inner pattern -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#cyberGlow)">
+    <path d="M256 96 L384 144 L384 256 C384 336 328 400 256 416 C184 400 128 336 128 256 L128 144 Z"/>
+    <path d="M256 128 L352 160 L352 256 C352 320 304 368 256 384 C208 368 160 320 160 256 L160 160 Z"/>
+    <path d="M256 160 L320 176 L320 256 C320 304 280 336 256 352 C232 336 192 304 192 256 L192 176 Z"/>
+  </g>
+  
+  <!-- Shield lock icon -->
+  <g fill="#32CD32" filter="url(#cyberGlow)">
+    <rect x="232" y="208" width="48" height="40" rx="4"/>
+    <path d="M240 208 L240 192 C240 176 248 168 256 168 C264 168 272 176 272 192 L272 208"/>
+  </g>
+  
+  <!-- Shield keyhole -->
+  <g fill="#00FFCC" filter="url(#cyberGlow)">
+    <circle cx="256" cy="224" r="8"/>
+    <rect x="252" y="224" width="8" height="16" rx="2"/>
+  </g>
+  
+  <!-- Shield protection indicators -->
+  <g fill="#7000FF" filter="url(#cyberGlow)">
+    <circle cx="256" cy="128" r="6"/>
+    <circle cx="192" cy="160" r="6"/>
+    <circle cx="320" cy="160" r="6"/>
+    <circle cx="160" cy="224" r="6"/>
+    <circle cx="352" cy="224" r="6"/>
+    <circle cx="160" cy="288" r="6"/>
+    <circle cx="352" cy="288" r="6"/>
+    <circle cx="192" cy="352" r="6"/>
+    <circle cx="320" cy="352" r="6"/>
+    <circle cx="256" cy="384" r="6"/>
+  </g>
+  
+  <!-- Shield data flow -->
+  <g stroke="#32CD32" stroke-width="1" fill="none" filter="url(#cyberGlow)">
+    <line x1="256" y1="128" x2="192" y2="160"/>
+    <line x1="256" y1="128" x2="320" y2="160"/>
+    <line x1="192" y1="160" x2="160" y2="224"/>
+    <line x1="320" y1="160" x2="352" y2="224"/>
+    <line x1="160" y1="224" x2="160" y2="288"/>
+    <line x1="352" y1="224" x2="352" y2="288"/>
+    <line x1="160" y1="288" x2="192" y2="352"/>
+    <line x1="352" y1="288" x2="320" y2="352"/>
+    <line x1="192" y1="352" x2="256" y2="384"/>
+    <line x1="320" y1="352" x2="256" y2="384"/>
+  </g>
+  
+  <!-- Shield encryption indicators -->
+  <g fill="#00FFCC" filter="url(#cyberGlow)">
+    <rect x="248" y="144" width="16" height="16" rx="2"/>
+    <rect x="184" y="176" width="16" height="16" rx="2"/>
+    <rect x="312" y="176" width="16" height="16" rx="2"/>
+    <rect x="152" y="240" width="16" height="16" rx="2"/>
+    <rect x="344" y="240" width="16" height="16" rx="2"/>
+    <rect x="152" y="304" width="16" height="16" rx="2"/>
+    <rect x="344" y="304" width="16" height="16" rx="2"/>
+    <rect x="184" y="368" width="16" height="16" rx="2"/>
+    <rect x="312" y="368" width="16" height="16" rx="2"/>
+    <rect x="248" y="400" width="16" height="16" rx="2"/>
+  </g>
+  
+  <!-- Shield firewall indicators -->
+  <g fill="#7000FF" filter="url(#cyberGlow)">
+    <rect x="240" y="168" width="32" height="4" rx="2"/>
+    <rect x="176" y="200" width="32" height="4" rx="2"/>
+    <rect x="304" y="200" width="32" height="4" rx="2"/>
+    <rect x="144" y="264" width="32" height="4" rx="2"/>
+    <rect x="336" y="264" width="32" height="4" rx="2"/>
+    <rect x="144" y="328" width="32" height="4" rx="2"/>
+    <rect x="336" y="328" width="32" height="4" rx="2"/>
+    <rect x="176" y="392" width="32" height="4" rx="2"/>
+    <rect x="304" y="392" width="32" height="4" rx="2"/>
+    <rect x="240" y="424" width="32" height="4" rx="2"/>
+  </g>
+  
+  <!-- Shield authentication indicators -->
+  <g fill="#32CD32" filter="url(#cyberGlow)">
+    <circle cx="256" cy="144" r="4"/>
+    <circle cx="192" cy="176" r="4"/>
+    <circle cx="320" cy="176" r="4"/>
+    <circle cx="160" cy="240" r="4"/>
+    <circle cx="352" cy="240" r="4"/>
+    <circle cx="160" cy="304" r="4"/>
+    <circle cx="352" cy="304" r="4"/>
+    <circle cx="192" cy="368" r="4"/>
+    <circle cx="320" cy="368" r="4"/>
+    <circle cx="256" cy="400" r="4"/>
+  </g>
+  
+  <!-- Shield network nodes -->
+  <g fill="#00FFCC" filter="url(#cyberGlow)">
+    <circle cx="224" cy="144" r="3"/>
+    <circle cx="288" cy="144" r="3"/>
+    <circle cx="160" cy="176" r="3"/>
+    <circle cx="224" cy="176" r="3"/>
+    <circle cx="288" cy="176" r="3"/>
+    <circle cx="352" cy="176" r="3"/>
+    <circle cx="128" cy="224" r="3"/>
+    <circle cx="128" cy="288" r="3"/>
+    <circle cx="384" cy="224" r="3"/>
+    <circle cx="384" cy="288" r="3"/>
+    <circle cx="160" cy="336" r="3"/>
+    <circle cx="224" cy="368" r="3"/>
+    <circle cx="288" cy="368" r="3"/>
+    <circle cx="352" cy="336" r="3"/>
+    <circle cx="224" cy="400" r="3"/>
+    <circle cx="288" cy="400" r="3"/>
+  </g>
+  
+  <!-- Shield network connections -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" filter="url(#cyberGlow)">
+    <line x1="224" y1="144" x2="288" y2="144"/>
+    <line x1="160" y1="176" x2="224" y2="176"/>
+    <line x1="224" y1="176" x2="288" y2="176"/>
+    <line x1="288" y1="176" x2="352" y2="176"/>
+    <line x1="128" y1="224" x2="128" y2="288"/>
+    <line x1="384" y1="224" x2="384" y2="288"/>
+    <line x1="160" y1="336" x2="224" y2="368"/>
+    <line x1="352" y1="336" x2="288" y2="368"/>
+    <line x1="224" y1="400" x2="288" y2="400"/>
+  </g>
+  
+  <!-- Shield threat indicators -->
+  <g fill="#FF0000" filter="url(#cyberGlow)">
+    <circle cx="64" cy="64" r="4"/>
+    <circle cx="448" cy="64" r="4"/>
+    <circle cx="64" cy="448" r="4"/>
+    <circle cx="448" cy="448" r="4"/>
+  </g>
+  
+  <!-- Shield defense indicators -->
+  <g fill="#00FF00" filter="url(#cyberGlow)">
+    <circle cx="96" cy="96" r="4"/>
+    <circle cx="416" cy="96" r="4"/>
+    <circle cx="96" cy="416" r="4"/>
+    <circle cx="416" cy="416" r="4"/>
+  </g>
+  
+  <!-- Shield scan lines -->
+  <g stroke="#00FFCC" stroke-width="1" fill="none" filter="url(#cyberGlow)">
+    <line x1="96" y1="128" x2="416" y2="128"/>
+    <line x1="96" y1="192" x2="416" y2="192"/>
+    <line x1="96" y1="256" x2="416" y2="256"/>
+    <line x1="96" y1="320" x2="416" y2="320"/>
+    <line x1="96" y1="384" x2="416" y2="384"/>
+  </g>
+  
+  <!-- Shield status indicators -->
+  <g fill="#32CD32" filter="url(#cyberGlow)">
+    <rect x="240" y="440" width="32" height="8" rx="2"/>
+  </g>
+</svg>

@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="healthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="healthGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="healthGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#healthGradient)"/>
+  
+  <!-- Heart rate monitor -->
+  <g fill="url(#healthGradient2)" stroke="#00FFCC" stroke-width="2" filter="url(#healthGlow)">
+    <rect x="64" y="64" width="128" height="96" rx="8"/>
+  </g>
+  
+  <!-- Heart rate display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#healthGlow)">
+    <rect x="72" y="72" width="112" height="64" rx="4"/>
+  </g>
+  
+  <!-- Heart rate waveform -->
+  <g fill="none" stroke="#32CD32" stroke-width="1" filter="url(#healthGlow)">
+    <path d="M80 104 L96 104 L104 88 L112 120 L120 104 L176 104"/>
+  </g>
+  
+  <!-- Heart rate value -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#healthGlow)">
+    <text x="128" y="144">72 BPM</text>
+  </g>
+  
+  <!-- Heart rate indicator -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <circle cx="72" cy="72" r="4"/>
+  </g>
+  
+  <!-- Blood pressure monitor -->
+  <g fill="url(#healthGradient2)" stroke="#00FFCC" stroke-width="2" filter="url(#healthGlow)">
+    <rect x="320" y="64" width="128" height="96" rx="8"/>
+  </g>
+  
+  <!-- Blood pressure display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#healthGlow)">
+    <rect x="328" y="72" width="112" height="64" rx="4"/>
+  </g>
+  
+  <!-- Blood pressure values -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#healthGlow)">
+    <text x="384" y="96">120/80</text>
+    <text x="384" y="112">mmHg</text>
+  </g>
+  
+  <!-- Blood pressure indicator -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <circle cx="328" cy="72" r="4"/>
+  </g>
+  
+  <!-- Temperature monitor -->
+  <g fill="url(#healthGradient2)" stroke="#00FFCC" stroke-width="2" filter="url(#healthGlow)">
+    <rect x="64" y="224" width="128" height="96" rx="8"/>
+  </g>
+  
+  <!-- Temperature display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#healthGlow)">
+    <rect x="72" y="232" width="112" height="64" rx="4"/>
+  </g>
+  
+  <!-- Temperature gauge -->
+  <g fill="none" stroke="#32CD32" stroke-width="1" filter="url(#healthGlow)">
+    <path d="M80 280 Q128 240 176 280"/>
+  </g>
+  
+  <!-- Temperature value -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#healthGlow)">
+    <text x="128" y="304">98.6°F</text>
+  </g>
+  
+  <!-- Temperature indicator -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <circle cx="72" cy="232" r="4"/>
+  </g>
+  
+  <!-- Oxygen saturation monitor -->
+  <g fill="url(#healthGradient2)" stroke="#00FFCC" stroke-width="2" filter="url(#healthGlow)">
+    <rect x="320" y="224" width="128" height="96" rx="8"/>
+  </g>
+  
+  <!-- Oxygen saturation display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#healthGlow)">
+    <rect x="328" y="232" width="112" height="64" rx="4"/>
+  </g>
+  
+  <!-- Oxygen saturation gauge -->
+  <g fill="none" stroke="#32CD32" stroke-width="1" filter="url(#healthGlow)">
+    <circle cx="384" cy="264" r="24"/>
+  </g>
+  
+  <!-- Oxygen saturation value -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#healthGlow)">
+    <text x="384" y="304">98%</text>
+  </g>
+  
+  <!-- Oxygen saturation indicator -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <circle cx="328" cy="232" r="4"/>
+  </g>
+  
+  <!-- Sleep tracker -->
+  <g fill="url(#healthGradient2)" stroke="#00FFCC" stroke-width="2" filter="url(#healthGlow)">
+    <rect x="64" y="384" width="128" height="96" rx="8"/>
+  </g>
+  
+  <!-- Sleep tracker display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#healthGlow)">
+    <rect x="72" y="392" width="112" height="64" rx="4"/>
+  </g>
+  
+  <!-- Sleep stages -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <rect x="80" y="400" width="16" height="48" rx="2"/>
+    <rect x="104" y="416" width="16" height="32" rx="2"/>
+    <rect x="128" y="408" width="16" height="40" rx="2"/>
+    <rect x="152" y="424" width="16" height="24" rx="2"/>
+  </g>
+  
+  <!-- Sleep tracker value -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#healthGlow)">
+    <text x="128" y="464">7.5h</text>
+  </g>
+  
+  <!-- Sleep tracker indicator -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <circle cx="72" cy="392" r="4"/>
+  </g>
+  
+  <!-- Activity tracker -->
+  <g fill="url(#healthGradient2)" stroke="#00FFCC" stroke-width="2" filter="url(#healthGlow)">
+    <rect x="320" y="384" width="128" height="96" rx="8"/>
+  </g>
+  
+  <!-- Activity tracker display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#healthGlow)">
+    <rect x="328" y="392" width="112" height="64" rx="4"/>
+  </g>
+  
+  <!-- Activity bars -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <rect x="336" y="424" width="8" height="32" rx="1"/>
+    <rect x="352" y="416" width="8" height="40" rx="1"/>
+    <rect x="368" y="408" width="8" height="48" rx="1"/>
+    <rect x="384" y="400" width="8" height="56" rx="1"/>
+    <rect x="400" y="416" width="8" height="40" rx="1"/>
+    <rect x="416" y="424" width="8" height="32" rx="1"/>
+  </g>
+  
+  <!-- Activity tracker value -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#healthGlow)">
+    <text x="384" y="464">10,000</text>
+  </g>
+  
+  <!-- Activity tracker indicator -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <circle cx="328" cy="392" r="4"/>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="#00FFCC" stroke-width="1" fill="none" filter="url(#healthGlow)">
+    <line x1="192" y1="112" x2="320" y2="112"/>
+    <line x1="128" y1="160" x2="128" y2="224"/>
+    <line x1="384" y1="160" x2="384" y2="224"/>
+    <line x1="128" y1="320" x2="128" y2="384"/>
+    <line x1="384" y1="320" x2="384" y2="384"/>
+  </g>
+  
+  <!-- Connection nodes -->
+  <g fill="#7000FF" filter="url(#healthGlow)">
+    <circle cx="256" y1="112" r="4"/>
+    <circle cx="128" y1="192" r="4"/>
+    <circle cx="384" y1="192" r="4"/>
+    <circle cx="128" y1="352" r="4"/>
+    <circle cx="384" y1="352" r="4"/>
+  </g>
+  
+  <!-- Data display -->
+  <g fill="#00FFCC" font-family="monospace" font-size="6" text-anchor="middle" filter="url(#healthGlow)">
+    <text x="256" y="496">HEALTH</text>
+    <text x="256" y="504">MONITORING</text>
+  </g>
+  
+  <!-- Status bar -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#healthGlow)">
+    <rect x="192" y="496" width="128" height="8" rx="2"/>
+  </g>
+  
+  <!-- Status fill -->
+  <g fill="#32CD32" filter="url(#healthGlow)">
+    <rect x="192" y="496" width="112" height="8" rx="2"/>
+  </g>
+  
+  <!-- Signal indicators -->
+  <g fill="#00FFCC" filter="url(#healthGlow)">
+    <path d="M240 48 L256 32 L272 48"/>
+    <path d="M232 40 L256 16 L280 40"/>
+  </g>
+</svg>

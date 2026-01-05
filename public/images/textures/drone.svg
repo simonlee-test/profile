@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="droneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="droneBodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="droneGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#droneGradient)"/>
+  
+  <!-- Drone body -->
+  <g fill="url(#droneBodyGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#droneGlow)">
+    <rect x="224" y="224" width="64" height="64" rx="8"/>
+  </g>
+  
+  <!-- Drone body details -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#droneGlow)">
+    <rect x="240" y="240" width="32" height="32" rx="4"/>
+  </g>
+  
+  <!-- Drone camera -->
+  <g fill="#32CD32" filter="url(#droneGlow)">
+    <circle cx="256" cy="256" r="8"/>
+  </g>
+  
+  <!-- Drone camera lens -->
+  <g fill="#00FFCC" filter="url(#droneGlow)">
+    <circle cx="256" cy="256" r="4"/>
+  </g>
+  
+  <!-- Drone arms -->
+  <g fill="url(#droneBodyGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#droneGlow)">
+    <!-- Top left arm -->
+    <rect x="128" y="128" width="96" height="16" rx="4"/>
+    
+    <!-- Top right arm -->
+    <rect x="288" y="128" width="96" height="16" rx="4"/>
+    
+    <!-- Bottom left arm -->
+    <rect x="128" y="368" width="96" height="16" rx="4"/>
+    
+    <!-- Bottom right arm -->
+    <rect x="288" y="368" width="96" height="16" rx="4"/>
+  </g>
+  
+  <!-- Drone arm joints -->
+  <g fill="#7000FF" filter="url(#droneGlow)">
+    <circle cx="224" cy="136" r="8"/>
+    <circle cx="288" cy="136" r="8"/>
+    <circle cx="224" cy="376" r="8"/>
+    <circle cx="288" cy="376" r="8"/>
+  </g>
+  
+  <!-- Drone rotors -->
+  <g fill="url(#droneBodyGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#droneGlow)">
+    <!-- Top left rotor -->
+    <circle cx="96" cy="136" r="32"/>
+    
+    <!-- Top right rotor -->
+    <circle cx="416" cy="136" r="32"/>
+    
+    <!-- Bottom left rotor -->
+    <circle cx="96" cy="376" r="32"/>
+    
+    <!-- Bottom right rotor -->
+    <circle cx="416" cy="376" r="32"/>
+  </g>
+  
+  <!-- Drone rotor blades -->
+  <g fill="#7000FF" filter="url(#droneGlow)">
+    <!-- Top left rotor blades -->
+    <rect x="64" y="132" width="64" height="8" rx="2"/>
+    <rect x="92" y="104" width="8" height="64" rx="2"/>
+    
+    <!-- Top right rotor blades -->
+    <rect x="384" y="132" width="64" height="8" rx="2"/>
+    <rect x="412" y="104" width="8" height="64" rx="2"/>
+    
+    <!-- Bottom left rotor blades -->
+    <rect x="64" y="372" width="64" height="8" rx="2"/>
+    <rect x="92" y="344" width="8" height="64" rx="2"/>
+    
+    <!-- Bottom right rotor blades -->
+    <rect x="384" y="372" width="64" height="8" rx="2"/>
+    <rect x="412" y="344" width="8" height="64" rx="2"/>
+  </g>
+  
+  <!-- Drone rotor centers -->
+  <g fill="#32CD32" filter="url(#droneGlow)">
+    <circle cx="96" cy="136" r="8"/>
+    <circle cx="416" cy="136" r="8"/>
+    <circle cx="96" cy="376" r="8"/>
+    <circle cx="416" cy="376" r="8"/>
+  </g>
+  
+  <!-- Drone LED lights -->
+  <g fill="#00FFCC" filter="url(#droneGlow)">
+    <circle cx="224" cy="224" r="4"/>
+    <circle cx="288" cy="224" r="4"/>
+    <circle cx="224" cy="288" r="4"/>
+    <circle cx="288" cy="288" r="4"/>
+  </g>
+  
+  <!-- Drone antenna -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#droneGlow)">
+    <line x1="256" y1="224" x2="256" y2="192"/>
+    <line x1="256" y1="288" x2="256" y2="320"/>
+  </g>
+  
+  <!-- Drone antenna tips -->
+  <g fill="#32CD32" filter="url(#droneGlow)">
+    <circle cx="256" cy="192" r="4"/>
+    <circle cx="256" cy="320" r="4"/>
+  </g>
+  
+  <!-- Drone GPS module -->
+  <g fill="url(#droneBodyGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#droneGlow)">
+    <rect x="240" y="192" width="32" height="16" rx="2"/>
+  </g>
+  
+  <!-- Drone GPS indicator -->
+  <g fill="#7000FF" filter="url(#droneGlow)">
+    <circle cx="256" cy="200" r="4"/>
+  </g>
+  
+  <!-- Drone battery -->
+  <g fill="url(#droneBodyGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#droneGlow)">
+    <rect x="240" y="304" width="32" height="16" rx="2"/>
+  </g>
+  
+  <!-- Drone battery indicator -->
+  <g fill="#32CD32" filter="url(#droneGlow)">
+    <rect x="244" y="308" width="24" height="8" rx="1"/>
+  </g>
+  
+  <!-- Drone landing gear -->
+  <g fill="none" stroke="#00FFCC" stroke-width="2" filter="url(#droneGlow)">
+    <line x1="192" y1="288" x2="160" y2="352"/>
+    <line x1="320" y1="288" x2="352" y2="352"/>
+  </g>
+  
+  <!-- Drone landing gear feet -->
+  <g fill="url(#droneBodyGradient)" stroke="#7000FF" stroke-width="1" filter="url(#droneGlow)">
+    <rect x="152" y="352" width="16" height="8" rx="2"/>
+    <rect x="344" y="352" width="16" height="8" rx="2"/>
+  </g>
+  
+  <!-- Drone prop guards -->
+  <g fill="none" stroke="#00FFCC" stroke-width="1" filter="url(#droneGlow)">
+    <circle cx="96" cy="136" r="40"/>
+    <circle cx="416" cy="136" r="40"/>
+    <circle cx="96" cy="376" r="40"/>
+    <circle cx="416" cy="376" r="40"/>
+  </g>
+  
+  <!-- Drone status indicators -->
+  <g fill="#32CD32" filter="url(#droneGlow)">
+    <circle cx="208" cy="256" r="4"/>
+    <circle cx="304" cy="256" r="4"/>
+  </g>
+  
+  <!-- Drone connection lines -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" filter="url(#droneGlow)">
+    <line x1="128" y1="136" x2="224" y2="136"/>
+    <line x1="288" y1="136" x2="384" y2="136"/>
+    <line x1="128" y1="376" x2="224" y2="376"/>
+    <line x1="288" y1="376" x2="384" y2="376"/>
+  </g>
+  
+  <!-- Drone data display -->
+  <g fill="#00FFCC" font-family="monospace" font-size="6" text-anchor="middle" filter="url(#droneGlow)">
+    <text x="256" y="448">DRONE</text>
+    <text x="256" y="456">ACTIVE</text>
+  </g>
+  
+  <!-- Drone altitude indicator -->
+  <g fill="#7000FF" filter="url(#droneGlow)">
+    <rect x="224" y="464" width="64" height="8" rx="2"/>
+  </g>
+  
+  <!-- Drone altitude fill -->
+  <g fill="#32CD32" filter="url(#droneGlow)">
+    <rect x="224" y="464" width="48" height="8" rx="2"/>
+  </g>
+  
+  <!-- Drone signal indicators -->
+  <g fill="#00FFCC" filter="url(#droneGlow)">
+    <path d="M240 48 L256 32 L272 48"/>
+    <path d="M232 40 L256 16 L280 40"/>
+  </g>
+  
+  <!-- Drone tracking lines -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" filter="url(#droneGlow)">
+    <line x1="96" y1="104" x2="96" y2="64"/>
+    <line x1="416" y1="104" x2="416" y2="64"/>
+    <line x1="96" y1="408" x2="96" y2="448"/>
+    <line x1="416" y1="408" x2="416" y2="448"/>
+  </g>
+  
+  <!-- Drone tracking points -->
+  <g fill="#32CD32" filter="url(#droneGlow)">
+    <circle cx="96" cy="64" r="4"/>
+    <circle cx="416" cy="64" r="4"/>
+    <circle cx="96" cy="448" r="4"/>
+    <circle cx="416" cy="448" r="4"/>
+  </g>
+</svg>

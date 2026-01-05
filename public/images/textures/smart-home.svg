@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="smartHomeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="deviceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="smartHomeGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#smartHomeGradient)"/>
+  
+  <!-- Smart home hub -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <rect x="224" y="224" width="64" height="64" rx="8"/>
+  </g>
+  
+  <!-- Smart home hub display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#smartHomeGlow)">
+    <rect x="240" y="240" width="32" height="32" rx="4"/>
+  </g>
+  
+  <!-- Smart home hub indicator -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="256" cy="256" r="8"/>
+  </g>
+  
+  <!-- Smart home hub status -->
+  <g fill="#00FFCC" filter="url(#smartHomeGlow)">
+    <circle cx="240" cy="224" r="4"/>
+    <circle cx="272" cy="224" r="4"/>
+    <circle cx="240" cy="288" r="4"/>
+    <circle cx="272" cy="288" r="4"/>
+  </g>
+  
+  <!-- Smart light bulb -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <circle cx="96" cy="96" r="32"/>
+  </g>
+  
+  <!-- Smart light bulb filament -->
+  <g fill="#7000FF" filter="url(#smartHomeGlow)">
+    <path d="M96 80 L96 112 M80 96 L112 96"/>
+  </g>
+  
+  <!-- Smart light bulb base -->
+  <g fill="none" stroke="#00FFCC" stroke-width="1" filter="url(#smartHomeGlow)">
+    <rect x="88" y="120" width="16" height="16" rx="2"/>
+  </g>
+  
+  <!-- Smart light bulb indicator -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="96" cy="96" r="8"/>
+  </g>
+  
+  <!-- Smart thermostat -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <circle cx="416" cy="96" r="32"/>
+  </g>
+  
+  <!-- Smart thermostat display -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#smartHomeGlow)">
+    <circle cx="416" cy="96" r="16"/>
+  </g>
+  
+  <!-- Smart thermostat temperature -->
+  <g fill="#32CD32" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#smartHomeGlow)">
+    <text x="416" y="100">72°</text>
+  </g>
+  
+  <!-- Smart thermostat controls -->
+  <g fill="#00FFCC" filter="url(#smartHomeGlow)">
+    <circle cx="400" cy="96" r="4"/>
+    <circle cx="432" cy="96" r="4"/>
+  </g>
+  
+  <!-- Smart door lock -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <rect x="64" y="224" width="64" height="96" rx="8"/>
+  </g>
+  
+  <!-- Smart door lock handle -->
+  <g fill="none" stroke="#7000FF" stroke-width="2" filter="url(#smartHomeGlow)">
+    <rect x="80" y="256" width="32" height="32" rx="4"/>
+  </g>
+  
+  <!-- Smart door lock indicator -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="96" cy="272" r="8"/>
+  </g>
+  
+  <!-- Smart door lock status -->
+  <g fill="#00FFCC" filter="url(#smartHomeGlow)">
+    <circle cx="80" cy="224" r="4"/>
+    <circle cx="112" cy="224" r="4"/>
+  </g>
+  
+  <!-- Smart security camera -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <rect x="384" y="224" width="64" height="64" rx="8"/>
+  </g>
+  
+  <!-- Smart security camera lens -->
+  <g fill="#7000FF" filter="url(#smartHomeGlow)">
+    <circle cx="416" cy="256" r="16"/>
+  </g>
+  
+  <!-- Smart security camera lens center -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="416" cy="256" r="8"/>
+  </g>
+  
+  <!-- Smart security camera indicator -->
+  <g fill="#00FFCC" filter="url(#smartHomeGlow)">
+    <circle cx="416" cy="224" r="4"/>
+  </g>
+  
+  <!-- Smart speaker -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <circle cx="96" cy="416" r="32"/>
+  </g>
+  
+  <!-- Smart speaker mesh -->
+  <g fill="none" stroke="#7000FF" stroke-width="0.5" filter="url(#smartHomeGlow)">
+    <circle cx="96" cy="416" r="24"/>
+    <circle cx="96" cy="416" r="16"/>
+    <circle cx="96" cy="416" r="8"/>
+  </g>
+  
+  <!-- Smart speaker indicator -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="96" cy="416" r="4"/>
+  </g>
+  
+  <!-- Smart TV -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <rect x="352" y="352" width="96" height="64" rx="4"/>
+  </g>
+  
+  <!-- Smart TV screen -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#smartHomeGlow)">
+    <rect x="360" y="360" width="80" height="48" rx="2"/>
+  </g>
+  
+  <!-- Smart TV stand -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#smartHomeGlow)">
+    <rect x="384" y="416" width="32" height="16" rx="2"/>
+  </g>
+  
+  <!-- Smart TV indicator -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="400" cy="384" r="4"/>
+  </g>
+  
+  <!-- Smart plug -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <rect x="224" y="384" width="64" height="48" rx="4"/>
+  </g>
+  
+  <!-- Smart plug outlets -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#smartHomeGlow)">
+    <circle cx="240" cy="408" r="8"/>
+    <circle cx="272" cy="408" r="8"/>
+  </g>
+  
+  <!-- Smart plug indicator -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="256" cy="384" r="4"/>
+  </g>
+  
+  <!-- Smart sensor -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <circle cx="192" cy="128" r="16"/>
+  </g>
+  
+  <!-- Smart sensor indicator -->
+  <g fill="#7000FF" filter="url(#smartHomeGlow)">
+    <circle cx="192" cy="128" r="8"/>
+  </g>
+  
+  <!-- Smart sensor status -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="192" cy="128" r="4"/>
+  </g>
+  
+  <!-- Smart switch -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#smartHomeGlow)">
+    <rect x="320" y="128" width="32" height="48" rx="4"/>
+  </g>
+  
+  <!-- Smart switch button -->
+  <g fill="#7000FF" filter="url(#smartHomeGlow)">
+    <rect x="328" y="136" width="16" height="16" rx="2"/>
+  </g>
+  
+  <!-- Smart switch indicator -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="336" cy="144" r="4"/>
+  </g>
+  
+  <!-- Connection lines -->
+  <g stroke="#00FFCC" stroke-width="1" fill="none" filter="url(#smartHomeGlow)">
+    <line x1="128" y1="96" x2="224" y2="224"/>
+    <line x1="384" y1="96" x2="288" y2="224"/>
+    <line x1="128" y1="272" x2="224" y2="256"/>
+    <line x1="384" y1="256" x2="288" y2="256"/>
+    <line x1="128" y1="416" x2="224" y2="288"/>
+    <line x1="352" y1="384" x2="288" y2="288"/>
+    <line x1="256" y1="384" x2="256" y2="288"/>
+  </g>
+  
+  <!-- Connection nodes -->
+  <g fill="#7000FF" filter="url(#smartHomeGlow)">
+    <circle cx="176" y1="160" r="4"/>
+    <circle cx="336" y1="160" r="4"/>
+    <circle cx="176" y1="264" r="4"/>
+    <circle cx="336" y1="264" r="4"/>
+    <circle cx="176" y1="352" r="4"/>
+    <circle cx="336" y1="352" r="4"/>
+  </g>
+  
+  <!-- Network indicators -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <circle cx="256" cy="192" r="4"/>
+    <circle cx="256" cy="320" r="4"/>
+  </g>
+  
+  <!-- Data display -->
+  <g fill="#00FFCC" font-family="monospace" font-size="6" text-anchor="middle" filter="url(#smartHomeGlow)">
+    <text x="256" y="480">SMART HOME</text>
+    <text x="256" y="488">CONNECTED</text>
+  </g>
+  
+  <!-- Status bar -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#smartHomeGlow)">
+    <rect x="192" y="496" width="128" height="8" rx="2"/>
+  </g>
+  
+  <!-- Status fill -->
+  <g fill="#32CD32" filter="url(#smartHomeGlow)">
+    <rect x="192" y="496" width="96" height="8" rx="2"/>
+  </g>
+  
+  <!-- Signal indicators -->
+  <g fill="#00FFCC" filter="url(#smartHomeGlow)">
+    <path d="M240 48 L256 32 L272 48"/>
+    <path d="M232 40 L256 16 L280 40"/>
+  </g>
+</svg>

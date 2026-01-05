@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { useThemeStore } from '@/store/themeStore';
 
 interface NavItem {
@@ -55,6 +56,11 @@ export function Navigation({ items = defaultNavItems }: NavigationProps) {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
+    // Check if it's an external link (starts with / but not #)
+    if (href.startsWith('/') && !href.startsWith('#')) {
+      window.location.href = href;
+      return;
+    }
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -273,5 +279,7 @@ const defaultNavItems: NavItem[] = [
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'GitHub', href: '#github' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Interests', href: '/interests' },
   { label: 'Contact', href: '#contact' },
 ];

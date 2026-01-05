@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="cloudGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cloudFillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.2" />
+    </linearGradient>
+    <filter id="cloudGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#cloudGradient)"/>
+  
+  <!-- Cloud computing clouds -->
+  <g fill="url(#cloudFillGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#cloudGlow)">
+    <!-- Cloud 1 -->
+    <ellipse cx="128" cy="128" rx="60" ry="40"/>
+    <ellipse cx="96" cy="128" rx="40" ry="30"/>
+    <ellipse cx="160" cy="128" rx="40" ry="30"/>
+    
+    <!-- Cloud 2 -->
+    <ellipse cx="384" cy="128" rx="60" ry="40"/>
+    <ellipse cx="352" cy="128" rx="40" ry="30"/>
+    <ellipse cx="416" cy="128" rx="40" ry="30"/>
+    
+    <!-- Cloud 3 -->
+    <ellipse cx="256" cy="256" rx="80" ry="50"/>
+    <ellipse cx="216" cy="256" rx="50" ry="35"/>
+    <ellipse cx="296" cy="256" rx="50" ry="35"/>
+    
+    <!-- Cloud 4 -->
+    <ellipse cx="128" cy="384" rx="60" ry="40"/>
+    <ellipse cx="96" cy="384" rx="40" ry="30"/>
+    <ellipse cx="160" cy="384" rx="40" ry="30"/>
+    
+    <!-- Cloud 5 -->
+    <ellipse cx="384" cy="384" rx="60" ry="40"/>
+    <ellipse cx="352" cy="384" rx="40" ry="30"/>
+    <ellipse cx="416" cy="384" rx="40" ry="30"/>
+  </g>
+  
+  <!-- Cloud connections -->
+  <g stroke="#7000FF" stroke-width="2" fill="none" filter="url(#cloudGlow)">
+    <!-- Connection 1-3 -->
+    <line x1="128" y1="168" x2="256" y2="206"/>
+    
+    <!-- Connection 2-3 -->
+    <line x1="384" y1="168" x2="256" y2="206"/>
+    
+    <!-- Connection 3-4 -->
+    <line x1="256" y1="306" x2="128" y2="344"/>
+    
+    <!-- Connection 3-5 -->
+    <line x1="256" y1="306" x2="384" y2="344"/>
+    
+    <!-- Connection 1-4 -->
+    <line x1="128" y1="168" x2="128" y2="344"/>
+    
+    <!-- Connection 2-5 -->
+    <line x1="384" y1="168" x2="384" y2="344"/>
+  </g>
+  
+  <!-- Cloud data indicators -->
+  <g fill="#32CD32" filter="url(#cloudGlow)">
+    <!-- Cloud 1 data -->
+    <circle cx="128" cy="128" r="8"/>
+    <circle cx="112" cy="120" r="4"/>
+    <circle cx="144" cy="120" r="4"/>
+    <circle cx="112" cy="136" r="4"/>
+    <circle cx="144" cy="136" r="4"/>
+    
+    <!-- Cloud 2 data -->
+    <circle cx="384" cy="128" r="8"/>
+    <circle cx="368" cy="120" r="4"/>
+    <circle cx="400" cy="120" r="4"/>
+    <circle cx="368" cy="136" r="4"/>
+    <circle cx="400" cy="136" r="4"/>
+    
+    <!-- Cloud 3 data -->
+    <circle cx="256" cy="256" r="10"/>
+    <circle cx="236" cy="244" r="5"/>
+    <circle cx="276" cy="244" r="5"/>
+    <circle cx="236" cy="268" r="5"/>
+    <circle cx="276" cy="268" r="5"/>
+    
+    <!-- Cloud 4 data -->
+    <circle cx="128" cy="384" r="8"/>
+    <circle cx="112" cy="376" r="4"/>
+    <circle cx="144" cy="376" r="4"/>
+    <circle cx="112" cy="392" r="4"/>
+    <circle cx="144" cy="392" r="4"/>
+    
+    <!-- Cloud 5 data -->
+    <circle cx="384" cy="384" r="8"/>
+    <circle cx="368" cy="376" r="4"/>
+    <circle cx="400" cy="376" r="4"/>
+    <circle cx="368" cy="392" r="4"/>
+    <circle cx="400" cy="392" r="4"/>
+  </g>
+  
+  <!-- Cloud service icons -->
+  <g fill="#00FFCC" filter="url(#cloudGlow)">
+    <!-- Storage icon -->
+    <rect x="120" y="112" width="16" height="12" rx="2"/>
+    <rect x="120" y="128" width="16" height="12" rx="2"/>
+    <rect x="120" y="144" width="16" height="12" rx="2"/>
+    
+    <!-- Compute icon -->
+    <rect x="376" y="112" width="16" height="12" rx="2"/>
+    <rect x="376" y="128" width="16" height="12" rx="2"/>
+    <rect x="376" y="144" width="16" height="12" rx="2"/>
+    
+    <!-- Database icon -->
+    <ellipse cx="256" cy="240" rx="12" ry="6"/>
+    <ellipse cx="256" cy="256" rx="12" ry="6"/>
+    <ellipse cx="256" cy="272" rx="12" ry="6"/>
+    
+    <!-- Network icon -->
+    <rect x="120" y="368" width="16" height="12" rx="2"/>
+    <rect x="120" y="384" width="16" height="12" rx="2"/>
+    <rect x="120" y="400" width="16" height="12" rx="2"/>
+    
+    <!-- Security icon -->
+    <rect x="376" y="368" width="16" height="12" rx="2"/>
+    <rect x="376" y="384" width="16" height="12" rx="2"/>
+    <rect x="376" y="400" width="16" height="12" rx="2"/>
+  </g>
+  
+  <!-- Data flow indicators -->
+  <g fill="#7000FF" filter="url(#cloudGlow)">
+    <!-- Flow 1-3 -->
+    <circle cx="192" cy="187" r="3"/>
+    <circle cx="192" cy="187" r="2"/>
+    
+    <!-- Flow 2-3 -->
+    <circle cx="320" cy="187" r="3"/>
+    <circle cx="320" cy="187" r="2"/>
+    
+    <!-- Flow 3-4 -->
+    <circle cx="192" cy="325" r="3"/>
+    <circle cx="192" cy="325" r="2"/>
+    
+    <!-- Flow 3-5 -->
+    <circle cx="320" cy="325" r="3"/>
+    <circle cx="320" cy="325" r="2"/>
+    
+    <!-- Flow 1-4 -->
+    <circle cx="128" cy="256" r="3"/>
+    <circle cx="128" cy="256" r="2"/>
+    
+    <!-- Flow 2-5 -->
+    <circle cx="384" cy="256" r="3"/>
+    <circle cx="384" cy="256" r="2"/>
+  </g>
+  
+  <!-- Cloud labels -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#cloudGlow)">
+    <text x="128" y="100">Storage</text>
+    <text x="384" y="100">Compute</text>
+    <text x="256" y="220">Database</text>
+    <text x="128" y="356">Network</text>
+    <text x="384" y="356">Security</text>
+  </g>
+  
+  <!-- Cloud status indicators -->
+  <g fill="#32CD32" filter="url(#cloudGlow)">
+    <circle cx="144" cy="112" r="3"/>
+    <circle cx="400" cy="112" r="3"/>
+    <circle cx="272" cy="240" r="3"/>
+    <circle cx="144" cy="368" r="3"/>
+    <circle cx="400" cy="368" r="3"/>
+  </g>
+  
+  <!-- Cloud capacity indicators -->
+  <g fill="#7000FF" filter="url(#cloudGlow)">
+    <rect x="112" y="156" width="32" height="4" rx="2"/>
+    <rect x="368" y="156" width="32" height="4" rx="2"/>
+    <rect x="236" y="284" width="40" height="4" rx="2"/>
+    <rect x="112" y="412" width="32" height="4" rx="2"/>
+    <rect x="368" y="412" width="32" height="4" rx="2"/>
+  </g>
+  
+  <!-- Cloud connection nodes -->
+  <g fill="#00FFCC" filter="url(#cloudGlow)">
+    <circle cx="192" cy="187" r="4"/>
+    <circle cx="320" cy="187" r="4"/>
+    <circle cx="192" cy="325" r="4"/>
+    <circle cx="320" cy="325" r="4"/>
+    <circle cx="128" cy="256" r="4"/>
+    <circle cx="384" cy="256" r="4"/>
+  </g>
+  
+  <!-- Cloud network mesh -->
+  <g stroke="#32CD32" stroke-width="1" fill="none" filter="url(#cloudGlow)">
+    <line x1="192" y1="187" x2="320" y2="187"/>
+    <line x1="192" y1="325" x2="320" y2="325"/>
+    <line x1="128" y1="256" x2="192" y2="187"/>
+    <line x1="128" y1="256" x2="192" y2="325"/>
+    <line x1="384" y1="256" x2="320" y2="187"/>
+    <line x1="384" y1="256" x2="320" y2="325"/>
+    <line x1="192" y1="187" x2="192" y2="325"/>
+    <line x1="320" y1="187" x2="320" y2="325"/>
+  </g>
+</svg>

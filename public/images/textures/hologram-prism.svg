@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="prismGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="prismFace1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="prismFace2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7000FF;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="prismFace3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#32CD32;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00FFCC;stop-opacity:0.4" />
+    </linearGradient>
+    <filter id="prismGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#prismGradient)"/>
+  
+  <!-- Prism faces -->
+  <g filter="url(#prismGlow)">
+    <!-- Face 1 -->
+    <polygon points="256,100 400,350 256,400" fill="url(#prismFace1)" opacity="0.7"/>
+    <!-- Face 2 -->
+    <polygon points="256,100 112,350 256,400" fill="url(#prismFace2)" opacity="0.7"/>
+    <!-- Face 3 -->
+    <polygon points="112,350 400,350 256,400" fill="url(#prismFace3)" opacity="0.7"/>
+  </g>
+  
+  <!-- Prism edges -->
+  <g stroke="#00FFCC" stroke-width="2" fill="none" filter="url(#prismGlow)">
+    <line x1="256" y1="100" x2="400" y2="350"/>
+    <line x1="256" y1="100" x2="112" y2="350"/>
+    <line x1="112" y1="350" x2="400" y2="350"/>
+    <line x1="256" y1="100" x2="256" y2="400"/>
+    <line x1="112" y1="350" x2="256" y2="400"/>
+    <line x1="400" y1="350" x2="256" y2="400"/>
+  </g>
+  
+  <!-- Light rays -->
+  <g stroke="#00FFCC" stroke-width="1" fill="none" opacity="0.5">
+    <line x1="256" y1="0" x2="256" y2="100"/>
+    <line x1="256" y1="100" x2="400" y2="350"/>
+    <line x1="256" y1="100" x2="112" y2="350"/>
+  </g>
+  
+  <!-- Refracted rays -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" opacity="0.4">
+    <line x1="400" y1="350" x2="512" y2="450"/>
+    <line x1="112" y1="350" x2="0" y2="450"/>
+    <line x1="256" y1="400" x2="256" y2="512"/>
+  </g>
+  
+  <!-- Spectrum colors -->
+  <g opacity="0.6">
+    <line x1="400" y1="350" x2="512" y2="450" stroke="#FF0000" stroke-width="2"/>
+    <line x1="400" y1="350" x2="512" y2="450" stroke="#FF7F00" stroke-width="2" transform="translate(0, -5)"/>
+    <line x1="400" y1="350" x2="512" y2="450" stroke="#FFFF00" stroke-width="2" transform="translate(0, -10)"/>
+    <line x1="400" y1="350" x2="512" y2="450" stroke="#00FF00" stroke-width="2" transform="translate(0, -15)"/>
+    <line x1="400" y1="350" x2="512" y2="450" stroke="#0000FF" stroke-width="2" transform="translate(0, -20)"/>
+    <line x1="400" y1="350" x2="512" y2="450" stroke="#4B0082" stroke-width="2" transform="translate(0, -25)"/>
+    <line x1="400" y1="350" x2="512" y2="450" stroke="#9400D3" stroke-width="2" transform="translate(0, -30)"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <g fill="#00FFCC" filter="url(#prismGlow)" opacity="0.6">
+    <circle cx="256" cy="50" r="3"/>
+    <circle cx="300" cy="200" r="2"/>
+    <circle cx="200" cy="200" r="2"/>
+    <circle cx="350" cy="300" r="3"/>
+    <circle cx="150" cy="300" r="3"/>
+    <circle cx="256" cy="450" r="2"/>
+  </g>
+</svg>

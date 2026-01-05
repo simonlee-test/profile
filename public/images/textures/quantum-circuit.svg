@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="quantumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="quantumLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.2" />
+      <stop offset="50%" style="stop-color:#00FFCC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00FFCC;stop-opacity:0.2" />
+    </linearGradient>
+    <filter id="quantumGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#quantumGradient)"/>
+  
+  <!-- Quantum circuit lines -->
+  <g stroke="url(#quantumLineGradient)" stroke-width="2" fill="none" filter="url(#quantumGlow)">
+    <!-- Horizontal lines -->
+    <line x1="0" y1="64" x2="512" y2="64"/>
+    <line x1="0" y1="128" x2="512" y2="128"/>
+    <line x1="0" y1="192" x2="512" y2="192"/>
+    <line x1="0" y1="256" x2="512" y2="256"/>
+    <line x1="0" y1="320" x2="512" y2="320"/>
+    <line x1="0" y1="384" x2="512" y2="384"/>
+    <line x1="0" y1="448" x2="512" y2="448"/>
+    
+    <!-- Vertical lines -->
+    <line x1="64" y1="0" x2="64" y2="512"/>
+    <line x1="128" y1="0" x2="128" y2="512"/>
+    <line x1="192" y1="0" x2="192" y2="512"/>
+    <line x1="256" y1="0" x2="256" y2="512"/>
+    <line x1="320" y1="0" x2="320" y2="512"/>
+    <line x1="384" y1="0" x2="384" y2="512"/>
+    <line x1="448" y1="0" x2="448" y2="512"/>
+  </g>
+  
+  <!-- Quantum gates -->
+  <g fill="#00FFCC" filter="url(#quantumGlow)">
+    <!-- Hadamard gates -->
+    <rect x="56" y="56" width="16" height="16" rx="2"/>
+    <rect x="120" y="120" width="16" height="16" rx="2"/>
+    <rect x="184" y="184" width="16" height="16" rx="2"/>
+    <rect x="248" y="248" width="16" height="16" rx="2"/>
+    <rect x="312" y="312" width="16" height="16" rx="2"/>
+    <rect x="376" y="376" width="16" height="16" rx="2"/>
+    <rect x="440" y="440" width="16" height="16" rx="2"/>
+    
+    <!-- Pauli-X gates -->
+    <rect x="120" y="56" width="16" height="16" rx="2"/>
+    <rect x="184" y="120" width="16" height="16" rx="2"/>
+    <rect x="248" y="184" width="16" height="16" rx="2"/>
+    <rect x="312" y="248" width="16" height="16" rx="2"/>
+    <rect x="376" y="312" width="16" height="16" rx="2"/>
+    <rect x="440" y="376" width="16" height="16" rx="2"/>
+    
+    <!-- CNOT gates -->
+    <rect x="184" y="56" width="16" height="16" rx="2"/>
+    <rect x="248" y="120" width="16" height="16" rx="2"/>
+    <rect x="312" y="184" width="16" height="16" rx="2"/>
+    <rect x="376" y="248" width="16" height="16" rx="2"/>
+    <rect x="440" y="312" width="16" height="16" rx="2"/>
+    
+    <!-- Phase gates -->
+    <rect x="248" y="56" width="16" height="16" rx="2"/>
+    <rect x="312" y="120" width="16" height="16" rx="2"/>
+    <rect x="376" y="184" width="16" height="16" rx="2"/>
+    <rect x="440" y="248" width="16" height="16" rx="2"/>
+    
+    <!-- T gates -->
+    <rect x="312" y="56" width="16" height="16" rx="2"/>
+    <rect x="376" y="120" width="16" height="16" rx="2"/>
+    <rect x="440" y="184" width="16" height="16" rx="2"/>
+    
+    <!-- S gates -->
+    <rect x="376" y="56" width="16" height="16" rx="2"/>
+    <rect x="440" y="120" width="16" height="16" rx="2"/>
+    
+    <!-- Y gates -->
+    <rect x="440" y="56" width="16" height="16" rx="2"/>
+  </g>
+  
+  <!-- Quantum gate symbols -->
+  <g fill="#050505" font-family="monospace" font-size="10" text-anchor="middle">
+    <text x="64" y="67">H</text>
+    <text x="128" y="131">H</text>
+    <text x="192" y="195">H</text>
+    <text x="256" y="259">H</text>
+    <text x="320" y="323">H</text>
+    <text x="384" y="387">H</text>
+    <text x="448" y="451">H</text>
+    
+    <text x="128" y="67">X</text>
+    <text x="192" y="131">X</text>
+    <text x="256" y="195">X</text>
+    <text x="320" y="259">X</text>
+    <text x="384" y="323">X</text>
+    <text x="448" y="387">X</text>
+    
+    <text x="192" y="67">⊕</text>
+    <text x="256" y="131">⊕</text>
+    <text x="320" y="195">⊕</text>
+    <text x="384" y="259">⊕</text>
+    <text x="448" y="323">⊕</text>
+    
+    <text x="256" y="67">P</text>
+    <text x="320" y="131">P</text>
+    <text x="384" y="195">P</text>
+    <text x="448" y="259">P</text>
+    
+    <text x="320" y="67">T</text>
+    <text x="384" y="131">T</text>
+    <text x="448" y="195">T</text>
+    
+    <text x="384" y="67">S</text>
+    <text x="448" y="131">S</text>
+    
+    <text x="448" y="67">Y</text>
+  </g>
+  
+  <!-- Quantum entanglement connections -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" filter="url(#quantumGlow)">
+    <!-- Entangled pairs -->
+    <line x1="192" y1="64" x2="192" y2="128"/>
+    <line x1="256" y1="128" x2="256" y2="192"/>
+    <line x1="320" y1="192" x2="320" y2="256"/>
+    <line x1="384" y1="256" x2="384" y2="320"/>
+    <line x1="448" y1="320" x2="448" y2="384"/>
+    
+    <!-- Bell state connections -->
+    <line x1="128" y1="64" x2="192" y2="128"/>
+    <line x1="192" y1="128" x2="256" y2="192"/>
+    <line x1="256" y1="192" x2="320" y2="256"/>
+    <line x1="320" y1="256" x2="384" y2="320"/>
+    <line x1="384" y1="320" x2="448" y2="384"/>
+  </g>
+  
+  <!-- Quantum state indicators -->
+  <g fill="#32CD32" filter="url(#quantumGlow)">
+    <!-- |0⟩ states -->
+    <circle cx="32" cy="64" r="4"/>
+    <circle cx="32" cy="128" r="4"/>
+    <circle cx="32" cy="192" r="4"/>
+    <circle cx="32" cy="256" r="4"/>
+    <circle cx="32" cy="320" r="4"/>
+    <circle cx="32" cy="384" r="4"/>
+    <circle cx="32" cy="448" r="4"/>
+    
+    <!-- |1⟩ states -->
+    <circle cx="480" cy="64" r="4"/>
+    <circle cx="480" cy="128" r="4"/>
+    <circle cx="480" cy="192" r="4"/>
+    <circle cx="480" cy="256" r="4"/>
+    <circle cx="480" cy="320" r="4"/>
+    <circle cx="480" cy="384" r="4"/>
+    <circle cx="480" cy="448" r="4"/>
+  </g>
+  
+  <!-- Superposition indicators -->
+  <g fill="#00FFCC" filter="url(#quantumGlow)">
+    <circle cx="64" cy="128" r="3"/>
+    <circle cx="128" cy="192" r="3"/>
+    <circle cx="192" cy="256" r="3"/>
+    <circle cx="256" cy="320" r="3"/>
+    <circle cx="320" cy="384" r="3"/>
+    <circle cx="384" cy="448" r="3"/>
+    
+    <circle cx="128" cy="64" r="3"/>
+    <circle cx="192" cy="128" r="3"/>
+    <circle cx="256" cy="192" r="3"/>
+    <circle cx="320" cy="256" r="3"/>
+    <circle cx="384" cy="320" r="3"/>
+    <circle cx="448" cy="384" r="3"/>
+  </g>
+  
+  <!-- Measurement indicators -->
+  <g fill="#7000FF" filter="url(#quantumGlow)">
+    <rect x="480" y="60" width="8" height="8" rx="1"/>
+    <rect x="480" y="124" width="8" height="8" rx="1"/>
+    <rect x="480" y="188" width="8" height="8" rx="1"/>
+    <rect x="480" y="252" width="8" height="8" rx="1"/>
+    <rect x="480" y="316" width="8" height="8" rx="1"/>
+    <rect x="480" y="380" width="8" height="8" rx="1"/>
+    <rect x="480" y="444" width="8" height="8" rx="1"/>
+  </g>
+  
+  <!-- Quantum circuit labels -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" filter="url(#quantumGlow)">
+    <text x="32" y="48">q0</text>
+    <text x="32" y="112">q1</text>
+    <text x="32" y="176">q2</text>
+    <text x="32" y="240">q3</text>
+    <text x="32" y="304">q4</text>
+    <text x="32" y="368">q5</text>
+    <text x="32" y="432">q6</text>
+  </g>
+  
+  <!-- Quantum circuit depth indicators -->
+  <g fill="#7000FF" font-family="monospace" font-size="8" filter="url(#quantumGlow)">
+    <text x="64" y="500">t0</text>
+    <text x="128" y="500">t1</text>
+    <text x="192" y="500">t2</text>
+    <text x="256" y="500">t3</text>
+    <text x="320" y="500">t4</text>
+    <text x="384" y="500">t5</text>
+    <text x="448" y="500">t6</text>
+  </g>
+</svg>

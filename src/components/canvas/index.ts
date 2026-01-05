@@ -7,3 +7,5 @@ export { NeuralTree } from './NeuralTree';
 export { FiberOpticTrunk } from './FiberOpticTrunk';
 export { ParticleLeaves } from './ParticleLeaves';
 export { GitHubTerrain, OptimizedGitHubTerrain } from './GitHubTerrain';
+export { default as HologramPrism } from './HologramPrism';
+export { default as PortfolioGallery } from './PortfolioGallery';

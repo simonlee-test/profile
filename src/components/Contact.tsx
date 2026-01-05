@@ -61,7 +61,7 @@ export default function Contact({ onSubmit, socialLinks = defaultSocialLinks }: 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const currentColors = colors[theme.mode as 'light' | 'dark'];
+  const currentColors = colors[theme.theme.mode as 'light' | 'dark'];
 
   const validateForm = (): boolean => {
     const newErrors: Partial<ContactFormData> = {};

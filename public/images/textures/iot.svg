@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="iotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="deviceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="iotGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#iotGradient)"/>
+  
+  <!-- Central hub -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#iotGlow)">
+    <circle cx="256" cy="256" r="64"/>
+  </g>
+  
+  <!-- Hub inner pattern -->
+  <g fill="none" stroke="#7000FF" stroke-width="1" filter="url(#iotGlow)">
+    <circle cx="256" cy="256" r="48"/>
+    <circle cx="256" cy="256" r="32"/>
+    <circle cx="256" cy="256" r="16"/>
+  </g>
+  
+  <!-- Hub status indicator -->
+  <g fill="#32CD32" filter="url(#iotGlow)">
+    <circle cx="256" cy="256" r="8"/>
+  </g>
+  
+  <!-- IoT devices -->
+  <g fill="url(#deviceGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#iotGlow)">
+    <!-- Device 1: Smart Home -->
+    <rect x="64" y="64" width="48" height="48" rx="4"/>
+    
+    <!-- Device 2: Wearable -->
+    <circle cx="448" cy="64" r="24"/>
+    
+    <!-- Device 3: Sensor -->
+    <rect x="64" y="400" width="48" height="48" rx="4"/>
+    
+    <!-- Device 4: Camera -->
+    <circle cx="448" cy="448" r="24"/>
+    
+    <!-- Device 5: Thermostat -->
+    <rect x="232" y="64" width="48" height="48" rx="4"/>
+    
+    <!-- Device 6: Lock -->
+    <rect x="232" y="400" width="48" height="48" rx="4"/>
+    
+    <!-- Device 7: Light -->
+    <circle cx="64" cy="256" r="24"/>
+    
+    <!-- Device 8: Speaker -->
+    <circle cx="448" cy="256" r="24"/>
+  </g>
+  
+  <!-- Device icons -->
+  <g fill="#32CD32" filter="url(#iotGlow)">
+    <!-- Smart Home icon -->
+    <rect x="80" y="80" width="16" height="16" rx="2"/>
+    
+    <!-- Wearable icon -->
+    <rect x="440" y="56" width="16" height="16" rx="2"/>
+    
+    <!-- Sensor icon -->
+    <circle cx="88" cy="424" r="8"/>
+    
+    <!-- Camera icon -->
+    <circle cx="448" cy="448" r="8"/>
+    
+    <!-- Thermostat icon -->
+    <circle cx="256" cy="88" r="8"/>
+    
+    <!-- Lock icon -->
+    <rect x="248" y="416" width="16" height="16" rx="2"/>
+    
+    <!-- Light icon -->
+    <circle cx="64" cy="256" r="8"/>
+    
+    <!-- Speaker icon -->
+    <circle cx="448" cy="256" r="8"/>
+  </g>
+  
+  <!-- Device connections -->
+  <g stroke="#7000FF" stroke-width="2" fill="none" filter="url(#iotGlow)">
+    <!-- Hub to Device 1 -->
+    <line x1="192" y1="256" x2="112" y2="88"/>
+    
+    <!-- Hub to Device 2 -->
+    <line x1="320" y1="256" x2="424" y2="88"/>
+    
+    <!-- Hub to Device 3 -->
+    <line x1="192" y1="256" x2="112" y2="424"/>
+    
+    <!-- Hub to Device 4 -->
+    <line x1="320" y1="256" x2="424" y2="424"/>
+    
+    <!-- Hub to Device 5 -->
+    <line x1="256" y1="192" x2="256" y2="112"/>
+    
+    <!-- Hub to Device 6 -->
+    <line x1="256" y1="320" x2="256" y2="400"/>
+    
+    <!-- Hub to Device 7 -->
+    <line x1="192" y1="256" x2="88" y2="256"/>
+    
+    <!-- Hub to Device 8 -->
+    <line x1="320" y1="256" x2="424" y2="256"/>
+  </g>
+  
+  <!-- Device data indicators -->
+  <g fill="#00FFCC" filter="url(#iotGlow)">
+    <!-- Device 1 data -->
+    <circle cx="88" cy="88" r="4"/>
+    <circle cx="88" cy="88" r="2"/>
+    
+    <!-- Device 2 data -->
+    <circle cx="448" cy="64" r="4"/>
+    <circle cx="448" cy="64" r="2"/>
+    
+    <!-- Device 3 data -->
+    <circle cx="88" cy="424" r="4"/>
+    <circle cx="88" cy="424" r="2"/>
+    
+    <!-- Device 4 data -->
+    <circle cx="448" cy="448" r="4"/>
+    <circle cx="448" cy="448" r="2"/>
+    
+    <!-- Device 5 data -->
+    <circle cx="256" cy="88" r="4"/>
+    <circle cx="256" cy="88" r="2"/>
+    
+    <!-- Device 6 data -->
+    <circle cx="256" cy="424" r="4"/>
+    <circle cx="256" cy="424" r="2"/>
+    
+    <!-- Device 7 data -->
+    <circle cx="64" cy="256" r="4"/>
+    <circle cx="64" cy="256" r="2"/>
+    
+    <!-- Device 8 data -->
+    <circle cx="448" cy="256" r="4"/>
+    <circle cx="448" cy="256" r="2"/>
+  </g>
+  
+  <!-- Device status indicators -->
+  <g fill="#32CD32" filter="url(#iotGlow)">
+    <circle cx="112" cy="64" r="3"/>
+    <circle cx="448" cy="40" r="3"/>
+    <circle cx="112" cy="448" r="3"/>
+    <circle cx="472" cy="448" r="3"/>
+    <circle cx="280" cy="64" r="3"/>
+    <circle cx="280" cy="448" r="3"/>
+    <circle cx="40" cy="256" r="3"/>
+    <circle cx="472" cy="256" r="3"/>
+  </g>
+  
+  <!-- Device labels -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#iotGlow)">
+    <text x="88" y="56">Home</text>
+    <text x="448" y="40">Wearable</text>
+    <text x="88" y="472">Sensor</text>
+    <text x="448" y="488">Camera</text>
+    <text x="256" y="56">Thermo</text>
+    <text x="256" y="472">Lock</text>
+    <text x="64" y="296">Light</text>
+    <text x="448" y="296">Speaker</text>
+  </g>
+  
+  <!-- Network nodes -->
+  <g fill="#7000FF" filter="url(#iotGlow)">
+    <circle cx="152" cy="172" r="4"/>
+    <circle cx="360" cy="172" r="4"/>
+    <circle cx="152" cy="340" r="4"/>
+    <circle cx="360" cy="340" r="4"/>
+    <circle cx="256" cy="152" r="4"/>
+    <circle cx="256" cy="360" r="4"/>
+    <circle cx="152" cy="256" r="4"/>
+    <circle cx="360" cy="256" r="4"/>
+  </g>
+  
+  <!-- Network connections -->
+  <g stroke="#32CD32" stroke-width="1" fill="none" filter="url(#iotGlow)">
+    <line x1="152" y1="172" x2="360" y2="172"/>
+    <line x1="152" y1="340" x2="360" y2="340"/>
+    <line x1="152" y1="172" x2="152" y2="340"/>
+    <line x1="360" y1="172" x2="360" y2="340"/>
+    <line x1="256" y1="152" x2="152" y2="172"/>
+    <line x1="256" y1="152" x2="360" y2="172"/>
+    <line x1="256" y1="360" x2="152" y2="340"/>
+    <line x1="256" y1="360" x2="360" y2="340"/>
+    <line x1="152" y1="256" x2="152" y2="172"/>
+    <line x1="152" y1="256" x2="152" y2="340"/>
+    <line x1="360" y1="256" x2="360" y2="172"/>
+    <line x1="360" y1="256" x2="360" y2="340"/>
+  </g>
+  
+  <!-- Data flow indicators -->
+  <g fill="#00FFCC" filter="url(#iotGlow)">
+    <circle cx="192" cy="256" r="3"/>
+    <circle cx="320" cy="256" r="3"/>
+    <circle cx="256" cy="192" r="3"/>
+    <circle cx="256" cy="320" r="3"/>
+  </g>
+  
+  <!-- Signal indicators -->
+  <g fill="#7000FF" filter="url(#iotGlow)">
+    <path d="M240 240 L256 224 L272 240"/>
+    <path d="M232 232 L256 208 L280 232"/>
+    <path d="M224 224 L256 192 L288 224"/>
+  </g>
+  
+  <!-- Cloud connection -->
+  <g fill="none" stroke="#32CD32" stroke-width="2" filter="url(#iotGlow)">
+    <path d="M256 192 L256 128"/>
+    <path d="M256 320 L256 384"/>
+  </g>
+  
+  <!-- Cloud indicators -->
+  <g fill="#00FFCC" filter="url(#iotGlow)">
+    <ellipse cx="256" cy="112" rx="32" ry="16"/>
+    <ellipse cx="256" cy="400" rx="32" ry="16"/>
+  </g>
+</svg>

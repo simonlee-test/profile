@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="dnaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="strand1Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="strand2Gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7000FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00FFCC;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dnaGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#dnaGradient)"/>
+  
+  <!-- DNA Strand 1 (left to right sine wave) -->
+  <path 
+    d="M 50 256 
+       Q 100 150, 150 256 
+       T 250 256 
+       T 350 256 
+       T 450 256 
+       T 550 256" 
+    fill="none" 
+    stroke="url(#strand1Gradient)" 
+    stroke-width="8" 
+    stroke-linecap="round"
+    filter="url(#dnaGlow)"
+  />
+  
+  <!-- DNA Strand 2 (right to left sine wave) -->
+  <path 
+    d="M 50 256 
+       Q 100 362, 150 256 
+       T 250 256 
+       T 350 256 
+       T 450 256 
+       T 550 256" 
+    fill="none" 
+    stroke="url(#strand2Gradient)" 
+    stroke-width="8" 
+    stroke-linecap="round"
+    filter="url(#dnaGlow)"
+  />
+  
+  <!-- Base pairs (connecting lines) -->
+  <g stroke="#00FFCC" stroke-width="3" fill="none" opacity="0.6" filter="url(#dnaGlow)">
+    <line x1="75" y1="203" x2="75" y2="309"/>
+    <line x1="100" y1="180" x2="100" y2="332"/>
+    <line x1="125" y1="203" x2="125" y2="309"/>
+    <line x1="150" y1="256" x2="150" y2="256"/>
+    <line x1="175" y1="309" x2="175" y2="203"/>
+    <line x1="200" y1="332" x2="200" y2="180"/>
+    <line x1="225" y1="309" x2="225" y2="203"/>
+    <line x1="250" y1="256" x2="250" y2="256"/>
+    <line x1="275" y1="203" x2="275" y2="309"/>
+    <line x1="300" y1="180" x2="300" y2="332"/>
+    <line x1="325" y1="203" x2="325" y2="309"/>
+    <line x1="350" y1="256" x2="350" y2="256"/>
+    <line x1="375" y1="309" x2="375" y2="203"/>
+    <line x1="400" y1="332" x2="400" y2="180"/>
+    <line x1="425" y1="309" x2="425" y2="203"/>
+    <line x1="450" y1="256" x2="450" y2="256"/>
+  </g>
+  
+  <!-- Nucleotides (dots on strands) -->
+  <g fill="#00FFCC" filter="url(#dnaGlow)">
+    <!-- Strand 1 nucleotides -->
+    <circle cx="75" cy="203" r="6"/>
+    <circle cx="100" cy="180" r="6"/>
+    <circle cx="125" cy="203" r="6"/>
+    <circle cx="150" cy="256" r="6"/>
+    <circle cx="175" cy="309" r="6"/>
+    <circle cx="200" cy="332" r="6"/>
+    <circle cx="225" cy="309" r="6"/>
+    <circle cx="250" cy="256" r="6"/>
+    <circle cx="275" cy="203" r="6"/>
+    <circle cx="300" cy="180" r="6"/>
+    <circle cx="325" cy="203" r="6"/>
+    <circle cx="350" cy="256" r="6"/>
+    <circle cx="375" cy="309" r="6"/>
+    <circle cx="400" cy="332" r="6"/>
+    <circle cx="425" cy="309" r="6"/>
+    <circle cx="450" cy="256" r="6"/>
+  </g>
+  
+  <g fill="#7000FF" filter="url(#dnaGlow)">
+    <!-- Strand 2 nucleotides -->
+    <circle cx="75" cy="309" r="6"/>
+    <circle cx="100" cy="332" r="6"/>
+    <circle cx="125" cy="309" r="6"/>
+    <circle cx="150" cy="256" r="6"/>
+    <circle cx="175" cy="203" r="6"/>
+    <circle cx="200" cy="180" r="6"/>
+    <circle cx="225" cy="203" r="6"/>
+    <circle cx="250" cy="256" r="6"/>
+    <circle cx="275" cy="309" r="6"/>
+    <circle cx="300" cy="332" r="6"/>
+    <circle cx="325" cy="309" r="6"/>
+    <circle cx="350" cy="256" r="6"/>
+    <circle cx="375" cy="203" r="6"/>
+    <circle cx="400" cy="180" r="6"/>
+    <circle cx="425" cy="203" r="6"/>
+    <circle cx="450" cy="256" r="6"/>
+  </g>
+  
+  <!-- Hydrogen bonds (small dots in middle) -->
+  <g fill="#32CD32" filter="url(#dnaGlow)" opacity="0.8">
+    <circle cx="75" cy="256" r="3"/>
+    <circle cx="100" cy="256" r="3"/>
+    <circle cx="125" cy="256" r="3"/>
+    <circle cx="175" cy="256" r="3"/>
+    <circle cx="200" cy="256" r="3"/>
+    <circle cx="225" cy="256" r="3"/>
+    <circle cx="275" cy="256" r="3"/>
+    <circle cx="300" cy="256" r="3"/>
+    <circle cx="325" cy="256" r="3"/>
+    <circle cx="375" cy="256" r="3"/>
+    <circle cx="400" cy="256" r="3"/>
+    <circle cx="425" cy="256" r="3"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <g fill="#00FFCC" filter="url(#dnaGlow)" opacity="0.4">
+    <circle cx="60" cy="150" r="2"/>
+    <circle cx="80" cy="100" r="2"/>
+    <circle cx="120" cy="80" r="2"/>
+    <circle cx="160" cy="70" r="2"/>
+    <circle cx="200" cy="65" r="2"/>
+    <circle cx="240" cy="60" r="2"/>
+    <circle cx="280" cy="65" r="2"/>
+    <circle cx="320" cy="70" r="2"/>
+    <circle cx="360" cy="80" r="2"/>
+    <circle cx="400" cy="100" r="2"/>
+    <circle cx="440" cy="150" r="2"/>
+    
+    <circle cx="60" cy="362" r="2"/>
+    <circle cx="80" cy="412" r="2"/>
+    <circle cx="120" cy="432" r="2"/>
+    <circle cx="160" cy="442" r="2"/>
+    <circle cx="200" cy="447" r="2"/>
+    <circle cx="240" cy="452" r="2"/>
+    <circle cx="280" cy="447" r="2"/>
+    <circle cx="320" cy="442" r="2"/>
+    <circle cx="360" cy="432" r="2"/>
+    <circle cx="400" cy="412" r="2"/>
+    <circle cx="440" cy="362" r="2"/>
+  </g>
+</svg>

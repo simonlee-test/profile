@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="circuitGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#circuitGradient)"/>
+  
+  <!-- Circuit traces -->
+  <g stroke="#00FFCC" stroke-width="2" fill="none" filter="url(#circuitGlow)">
+    <!-- Horizontal traces -->
+    <path d="M 50 100 L 150 100 L 170 120 L 250 120 L 270 140 L 350 140 L 370 160 L 462 160"/>
+    <path d="M 50 200 L 100 200 L 120 180 L 200 180 L 220 200 L 300 200 L 320 220 L 462 220"/>
+    <path d="M 50 300 L 180 300 L 200 280 L 280 280 L 300 300 L 380 300 L 400 320 L 462 320"/>
+    <path d="M 50 400 L 120 400 L 140 380 L 220 380 L 240 400 L 320 400 L 340 420 L 462 420"/>
+    
+    <!-- Vertical traces -->
+    <path d="M 100 50 L 100 150 L 120 170 L 120 250 L 140 270 L 140 462"/>
+    <path d="M 200 50 L 200 100 L 220 120 L 220 200 L 240 220 L 240 300 L 260 320 L 260 462"/>
+    <path d="M 300 50 L 300 180 L 320 200 L 320 280 L 340 300 L 340 380 L 360 400 L 360 462"/>
+    <path d="M 400 50 L 400 120 L 420 140 L 420 220 L 440 240 L 440 320 L 460 340 L 460 462"/>
+  </g>
+  
+  <!-- Circuit nodes -->
+  <g fill="#00FFCC" filter="url(#circuitGlow)">
+    <!-- Main nodes -->
+    <circle cx="100" cy="100" r="8"/>
+    <circle cx="200" cy="200" r="8"/>
+    <circle cx="300" cy="300" r="8"/>
+    <circle cx="400" cy="400" r="8"/>
+    
+    <!-- Secondary nodes -->
+    <circle cx="150" cy="100" r="5"/>
+    <circle cx="250" cy="120" r="5"/>
+    <circle cx="350" cy="140" r="5"/>
+    <circle cx="100" cy="200" r="5"/>
+    <circle cx="200" cy="180" r="5"/>
+    <circle cx="300" cy="200" r="5"/>
+    <circle cx="180" cy="300" r="5"/>
+    <circle cx="280" cy="280" r="5"/>
+    <circle cx="380" cy="300" r="5"/>
+    <circle cx="120" cy="400" r="5"/>
+    <circle cx="220" cy="380" r="5"/>
+    <circle cx="320" cy="400" r="5"/>
+  </g>
+  
+  <!-- Active traces -->
+  <g stroke="#7000FF" stroke-width="3" fill="none" filter="url(#circuitGlow)">
+    <path d="M 200 200 L 220 200 L 240 220 L 300 220 L 320 240 L 400 240"/>
+    <path d="M 300 300 L 320 300 L 340 320 L 400 320"/>
+  </g>
+  
+  <!-- IC chips -->
+  <g fill="#0a0a1a" stroke="#00FFCC" stroke-width="2" filter="url(#circuitGlow)">
+    <rect x="180" y="180" width="40" height="40" rx="2"/>
+    <rect x="280" y="280" width="40" height="40" rx="2"/>
+    <rect x="380" y="380" width="40" height="40" rx="2"/>
+  </g>
+  
+  <!-- IC chip pins -->
+  <g fill="#00FFCC" filter="url(#circuitGlow)">
+    <!-- Chip 1 pins -->
+    <rect x="175" y="185" width="5" height="3"/>
+    <rect x="175" y="195" width="5" height="3"/>
+    <rect x="175" y="205" width="5" height="3"/>
+    <rect x="175" y="215" width="5" height="3"/>
+    <rect x="220" y="185" width="5" height="3"/>
+    <rect x="220" y="195" width="5" height="3"/>
+    <rect x="220" y="205" width="5" height="3"/>
+    <rect x="220" y="215" width="5" height="3"/>
+    
+    <!-- Chip 2 pins -->
+    <rect x="275" y="285" width="5" height="3"/>
+    <rect x="275" y="295" width="5" height="3"/>
+    <rect x="275" y="305" width="5" height="3"/>
+    <rect x="275" y="315" width="5" height="3"/>
+    <rect x="320" y="285" width="5" height="3"/>
+    <rect x="320" y="295" width="5" height="3"/>
+    <rect x="320" y="305" width="5" height="3"/>
+    <rect x="320" y="315" width="5" height="3"/>
+    
+    <!-- Chip 3 pins -->
+    <rect x="375" y="385" width="5" height="3"/>
+    <rect x="375" y="395" width="5" height="3"/>
+    <rect x="375" y="405" width="5" height="3"/>
+    <rect x="375" y="415" width="5" height="3"/>
+    <rect x="420" y="385" width="5" height="3"/>
+    <rect x="420" y="395" width="5" height="3"/>
+    <rect x="420" y="405" width="5" height="3"/>
+    <rect x="420" y="415" width="5" height="3"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <g fill="#32CD32" filter="url(#circuitGlow)" opacity="0.5">
+    <circle cx="80" cy="80" r="3"/>
+    <circle cx="160" cy="160" r="3"/>
+    <circle cx="240" cy="240" r="3"/>
+    <circle cx="320" cy="320" r="3"/>
+    <circle cx="400" cy="400" r="3"/>
+    <circle cx="120" cy="120" r="2"/>
+    <circle cx="200" cy="200" r="2"/>
+    <circle cx="280" cy="280" r="2"/>
+    <circle cx="360" cy="360" r="2"/>
+    <circle cx="440" cy="440" r="2"/>
+  </g>
+</svg>

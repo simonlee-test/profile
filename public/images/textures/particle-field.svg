@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="particleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="particleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#00FFCC;stop-opacity:0" />
+    </radialGradient>
+    <filter id="particleBlur">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#particleGradient)"/>
+  
+  <!-- Central glow -->
+  <circle cx="256" cy="256" r="150" fill="url(#particleGlow)"/>
+  
+  <!-- Large particles -->
+  <g fill="#00FFCC" filter="url(#particleBlur)">
+    <circle cx="256" cy="256" r="8"/>
+    <circle cx="200" cy="200" r="6"/>
+    <circle cx="312" cy="200" r="6"/>
+    <circle cx="200" cy="312" r="6"/>
+    <circle cx="312" cy="312" r="6"/>
+    <circle cx="256" cy="150" r="5"/>
+    <circle cx="256" cy="362" r="5"/>
+    <circle cx="150" cy="256" r="5"/>
+    <circle cx="362" cy="256" r="5"/>
+  </g>
+  
+  <!-- Medium particles -->
+  <g fill="#7000FF" filter="url(#particleBlur)" opacity="0.8">
+    <circle cx="180" cy="180" r="4"/>
+    <circle cx="332" cy="180" r="4"/>
+    <circle cx="180" cy="332" r="4"/>
+    <circle cx="332" cy="332" r="4"/>
+    <circle cx="256" cy="120" r="4"/>
+    <circle cx="256" cy="392" r="4"/>
+    <circle cx="120" cy="256" r="4"/>
+    <circle cx="392" cy="256" r="4"/>
+    <circle cx="220" cy="160" r="3"/>
+    <circle cx="292" cy="160" r="3"/>
+    <circle cx="220" cy="352" r="3"/>
+    <circle cx="292" cy="352" r="3"/>
+    <circle cx="160" cy="220" r="3"/>
+    <circle cx="352" cy="220" r="3"/>
+    <circle cx="160" cy="292" r="3"/>
+    <circle cx="352" cy="292" r="3"/>
+  </g>
+  
+  <!-- Small particles -->
+  <g fill="#32CD32" filter="url(#particleBlur)" opacity="0.6">
+    <circle cx="140" cy="140" r="2"/>
+    <circle cx="372" cy="140" r="2"/>
+    <circle cx="140" cy="372" r="2"/>
+    <circle cx="372" cy="372" r="2"/>
+    <circle cx="256" cy="90" r="2"/>
+    <circle cx="256" cy="422" r="2"/>
+    <circle cx="90" cy="256" r="2"/>
+    <circle cx="422" cy="256" r="2"/>
+    <circle cx="200" cy="100" r="2"/>
+    <circle cx="312" cy="100" r="2"/>
+    <circle cx="200" cy="412" r="2"/>
+    <circle cx="312" cy="412" r="2"/>
+    <circle cx="100" cy="200" r="2"/>
+    <circle cx="412" cy="200" r="2"/>
+    <circle cx="100" cy="312" r="2"/>
+    <circle cx="412" cy="312" r="2"/>
+  </g>
+  
+  <!-- Tiny particles -->
+  <g fill="#00FFCC" filter="url(#particleBlur)" opacity="0.4">
+    <circle cx="120" cy="120" r="1.5"/>
+    <circle cx="392" cy="120" r="1.5"/>
+    <circle cx="120" cy="392" r="1.5"/>
+    <circle cx="392" cy="392" r="1.5"/>
+    <circle cx="256" cy="70" r="1.5"/>
+    <circle cx="256" cy="442" r="1.5"/>
+    <circle cx="70" cy="256" r="1.5"/>
+    <circle cx="442" cy="256" r="1.5"/>
+    <circle cx="180" cy="90" r="1.5"/>
+    <circle cx="332" cy="90" r="1.5"/>
+    <circle cx="180" cy="422" r="1.5"/>
+    <circle cx="332" cy="422" r="1.5"/>
+    <circle cx="90" cy="180" r="1.5"/>
+    <circle cx="422" cy="180" r="1.5"/>
+    <circle cx="90" cy="332" r="1.5"/>
+    <circle cx="422" cy="332" r="1.5"/>
+  </g>
+  
+  <!-- Particle connections -->
+  <g stroke="#00FFCC" stroke-width="1" fill="none" opacity="0.2">
+    <line x1="256" y1="256" x2="200" y2="200"/>
+    <line x1="256" y1="256" x2="312" y2="200"/>
+    <line x1="256" y1="256" x2="200" y2="312"/>
+    <line x1="256" y1="256" x2="312" y2="312"/>
+    <line x1="256" y1="256" x2="256" y2="150"/>
+    <line x1="256" y1="256" x2="256" y2="362"/>
+    <line x1="256" y1="256" x2="150" y2="256"/>
+    <line x1="256" y1="256" x2="362" y2="256"/>
+  </g>
+  
+  <!-- Outer particles -->
+  <g fill="#7000FF" filter="url(#particleBlur)" opacity="0.3">
+    <circle cx="60" cy="60" r="2"/>
+    <circle cx="452" cy="60" r="2"/>
+    <circle cx="60" cy="452" r="2"/>
+    <circle cx="452" cy="452" r="2"/>
+    <circle cx="256" cy="40" r="2"/>
+    <circle cx="256" cy="472" r="2"/>
+    <circle cx="40" cy="256" r="2"/>
+    <circle cx="472" cy="256" r="2"/>
+  </g>
+</svg>

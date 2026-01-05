@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="vrGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="vrHeadsetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="vrGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#vrGradient)"/>
+  
+  <!-- VR headset frame -->
+  <g fill="url(#vrHeadsetGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#vrGlow)">
+    <rect x="96" y="128" width="320" height="192" rx="16"/>
+  </g>
+  
+  <!-- VR headset lenses -->
+  <g fill="none" stroke="#7000FF" stroke-width="2" filter="url(#vrGlow)">
+    <ellipse cx="192" cy="224" rx="64" ry="48"/>
+    <ellipse cx="320" cy="224" rx="64" ry="48"/>
+  </g>
+  
+  <!-- VR headset lens reflections -->
+  <g fill="#00FFCC" fill-opacity="0.3" filter="url(#vrGlow)">
+    <ellipse cx="192" cy="224" rx="48" ry="32"/>
+    <ellipse cx="320" cy="224" rx="48" ry="32"/>
+  </g>
+  
+  <!-- VR headset lens centers -->
+  <g fill="#32CD32" filter="url(#vrGlow)">
+    <circle cx="192" cy="224" r="8"/>
+    <circle cx="320" cy="224" r="8"/>
+  </g>
+  
+  <!-- VR headset nose bridge -->
+  <g fill="url(#vrHeadsetGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#vrGlow)">
+    <rect x="240" y="208" width="32" height="32" rx="4"/>
+  </g>
+  
+  <!-- VR headset strap -->
+  <g fill="none" stroke="#7000FF" stroke-width="2" filter="url(#vrGlow)">
+    <path d="M96 160 L64 160 L64 288 L96 288"/>
+    <path d="M416 160 L448 160 L448 288 L416 288"/>
+  </g>
+  
+  <!-- VR headset strap padding -->
+  <g fill="url(#vrHeadsetGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#vrGlow)">
+    <rect x="64" y="192" width="32" height="64" rx="4"/>
+    <rect x="416" y="192" width="32" height="64" rx="4"/>
+  </g>
+  
+  <!-- VR headset buttons -->
+  <g fill="#32CD32" filter="url(#vrGlow)">
+    <circle cx="128" cy="144" r="8"/>
+    <circle cx="384" cy="144" r="8"/>
+  </g>
+  
+  <!-- VR headset indicators -->
+  <g fill="#00FFCC" filter="url(#vrGlow)">
+    <circle cx="256" cy="144" r="4"/>
+    <circle cx="256" cy="304" r="4"/>
+  </g>
+  
+  <!-- VR controllers -->
+  <g fill="url(#vrHeadsetGradient)" stroke="#00FFCC" stroke-width="2" filter="url(#vrGlow)">
+    <!-- Left controller -->
+    <rect x="64" y="352" width="64" height="96" rx="8"/>
+    
+    <!-- Right controller -->
+    <rect x="384" y="352" width="64" height="96" rx="8"/>
+  </g>
+  
+  <!-- VR controller joysticks -->
+  <g fill="#7000FF" filter="url(#vrGlow)">
+    <circle cx="96" cy="384" r="16"/>
+    <circle cx="416" cy="384" r="16"/>
+  </g>
+  
+  <!-- VR controller joystick tops -->
+  <g fill="#32CD32" filter="url(#vrGlow)">
+    <circle cx="96" cy="384" r="8"/>
+    <circle cx="416" cy="384" r="8"/>
+  </g>
+  
+  <!-- VR controller buttons -->
+  <g fill="#00FFCC" filter="url(#vrGlow)">
+    <circle cx="96" cy="424" r="8"/>
+    <circle cx="416" cy="424" r="8"/>
+  </g>
+  
+  <!-- VR controller triggers -->
+  <g fill="none" stroke="#7000FF" stroke-width="2" filter="url(#vrGlow)">
+    <rect x="80" y="432" width="32" height="8" rx="2"/>
+    <rect x="400" y="432" width="32" height="8" rx="2"/>
+  </g>
+  
+  <!-- VR controller grips -->
+  <g fill="url(#vrHeadsetGradient)" stroke="#00FFCC" stroke-width="1" filter="url(#vrGlow)">
+    <rect x="72" y="440" width="48" height="8" rx="2"/>
+    <rect x="392" y="440" width="48" height="8" rx="2"/>
+  </g>
+  
+  <!-- VR tracking sensors -->
+  <g fill="#32CD32" filter="url(#vrGlow)">
+    <circle cx="32" cy="256" r="8"/>
+    <circle cx="480" cy="256" r="8"/>
+    <circle cx="256" cy="32" r="8"/>
+    <circle cx="256" cy="480" r="8"/>
+  </g>
+  
+  <!-- VR tracking beams -->
+  <g fill="none" stroke="#00FFCC" stroke-width="1" filter="url(#vrGlow)">
+    <line x1="32" y1="256" x2="96" y2="224"/>
+    <line x1="480" y1="256" x2="416" y2="224"/>
+    <line x1="256" y1="32" x2="256" y2="128"/>
+    <line x1="256" y1="480" x2="256" y2="448"/>
+  </g>
+  
+  <!-- VR tracking indicators -->
+  <g fill="#7000FF" filter="url(#vrGlow)">
+    <circle cx="64" cy="240" r="4"/>
+    <circle cx="448" cy="240" r="4"/>
+    <circle cx="256" cy="96" r="4"/>
+    <circle cx="256" cy="464" r="4"/>
+  </g>
+  
+  <!-- VR space indicators -->
+  <g fill="none" stroke="#32CD32" stroke-width="1" filter="url(#vrGlow)">
+    <rect x="48" y="48" width="416" height="416" rx="8" stroke-dasharray="8,8"/>
+  </g>
+  
+  <!-- VR boundary indicators -->
+  <g fill="#00FFCC" filter="url(#vrGlow)">
+    <circle cx="48" cy="48" r="4"/>
+    <circle cx="464" cy="48" r="4"/>
+    <circle cx="48" cy="464" r="4"/>
+    <circle cx="464" cy="464" r="4"/>
+  </g>
+  
+  <!-- VR connection lines -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" filter="url(#vrGlow)">
+    <line x1="96" y1="352" x2="96" y2="320"/>
+    <line x1="416" y1="352" x2="416" y2="320"/>
+    <line x1="96" y1="320" x2="192" y2="272"/>
+    <line x1="416" y1="320" x2="320" y2="272"/>
+  </g>
+  
+  <!-- VR data indicators -->
+  <g fill="#32CD32" filter="url(#vrGlow)">
+    <circle cx="192" cy="272" r="4"/>
+    <circle cx="320" cy="272" r="4"/>
+  </g>
+  
+  <!-- VR status display -->
+  <g fill="#00FFCC" font-family="monospace" font-size="8" text-anchor="middle" filter="url(#vrGlow)">
+    <text x="256" y="120">VR HEADSET</text>
+    <text x="96" y="344">LEFT</text>
+    <text x="416" y="344">RIGHT</text>
+  </g>
+  
+  <!-- VR battery indicators -->
+  <g fill="#7000FF" filter="url(#vrGlow)">
+    <rect x="240" y="112" width="32" height="8" rx="2"/>
+    <rect x="72" y="336" width="16" height="8" rx="2"/>
+    <rect x="424" y="336" width="16" height="8" rx="2"/>
+  </g>
+  
+  <!-- VR signal indicators -->
+  <g fill="#32CD32" filter="url(#vrGlow)">
+    <path d="M240 104 L256 88 L272 104"/>
+    <path d="M232 96 L256 72 L280 96"/>
+  </g>
+</svg>

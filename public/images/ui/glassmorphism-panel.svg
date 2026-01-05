@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.05" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.5" />
+      <stop offset="50%" style="stop-color:#7000FF;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:0.5" />
+    </linearGradient>
+    <filter id="glassBlur">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="#050505"/>
+  
+  <!-- Glass panel -->
+  <rect x="50" y="50" width="300" height="300" rx="20" ry="20" 
+        fill="url(#glassGradient)" 
+        stroke="url(#borderGradient)" 
+        stroke-width="2"
+        filter="url(#glassBlur)"/>
+  
+  <!-- Inner glow -->
+  <rect x="55" y="55" width="290" height="290" rx="15" ry="15" 
+        fill="none" 
+        stroke="#00FFCC" 
+        stroke-width="1" 
+        opacity="0.3"
+        filter="url(#glow)"/>
+  
+  <!-- Corner accents -->
+  <g fill="#00FFCC" filter="url(#glow)">
+    <circle cx="70" cy="70" r="4" opacity="0.8"/>
+    <circle cx="330" cy="70" r="4" opacity="0.8"/>
+    <circle cx="70" cy="330" r="4" opacity="0.8"/>
+    <circle cx="330" cy="330" r="4" opacity="0.8"/>
+  </g>
+  
+  <!-- Decorative lines -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" opacity="0.4">
+    <line x1="80" y1="100" x2="320" y2="100"/>
+    <line x1="80" y1="120" x2="320" y2="120"/>
+    <line x1="80" y1="140" x2="200" y2="140"/>
+  </g>
+  
+  <!-- Content placeholder -->
+  <g fill="#32CD32" opacity="0.6">
+    <rect x="80" y="180" width="240" height="20" rx="4" opacity="0.4"/>
+    <rect x="80" y="220" width="180" height="20" rx="4" opacity="0.3"/>
+    <rect x="80" y="260" width="200" height="20" rx="4" opacity="0.3"/>
+  </g>
+  
+  <!-- Button placeholder -->
+  <rect x="80" y="300" width="100" height="35" rx="8" 
+        fill="url(#borderGradient)" 
+        opacity="0.6"
+        filter="url(#glow)"/>
+  
+  <!-- Floating particles -->
+  <g fill="#00FFCC" filter="url(#glow)" opacity="0.5">
+    <circle cx="100" cy="160" r="2"/>
+    <circle cx="300" cy="160" r="2"/>
+    <circle cx="200" cy="280" r="2"/>
+  </g>
+</svg>

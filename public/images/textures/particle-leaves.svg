@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#32CD32;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00FFCC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="leafGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:0" />
+    </radialGradient>
+    <filter id="leafBlur">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="#050505"/>
+  
+  <!-- Radial glow -->
+  <circle cx="256" cy="256" r="200" fill="url(#leafGlow)"/>
+  
+  <!-- Leaf shapes -->
+  <g fill="url(#leafGradient)" filter="url(#leafBlur)" opacity="0.8">
+    <!-- Large leaves -->
+    <ellipse cx="100" cy="100" rx="30" ry="15" transform="rotate(-30 100 100)"/>
+    <ellipse cx="400" cy="100" rx="30" ry="15" transform="rotate(30 400 100)"/>
+    <ellipse cx="100" cy="400" rx="30" ry="15" transform="rotate(30 100 400)"/>
+    <ellipse cx="400" cy="400" rx="30" ry="15" transform="rotate(-30 400 400)"/>
+    
+    <!-- Medium leaves -->
+    <ellipse cx="200" cy="150" rx="25" ry="12" transform="rotate(-45 200 150)"/>
+    <ellipse cx="300" cy="150" rx="25" ry="12" transform="rotate(45 300 150)"/>
+    <ellipse cx="200" cy="350" rx="25" ry="12" transform="rotate(45 200 350)"/>
+    <ellipse cx="300" cy="350" rx="25" ry="12" transform="rotate(-45 300 350)"/>
+    
+    <!-- Small leaves -->
+    <ellipse cx="150" cy="200" rx="20" ry="10" transform="rotate(-60 150 200)"/>
+    <ellipse cx="350" cy="200" rx="20" ry="10" transform="rotate(60 350 200)"/>
+    <ellipse cx="150" cy="300" rx="20" ry="10" transform="rotate(60 150 300)"/>
+    <ellipse cx="350" cy="300" rx="20" ry="10" transform="rotate(-60 350 300)"/>
+    
+    <!-- Tiny leaves -->
+    <ellipse cx="256" cy="100" rx="15" ry="8" transform="rotate(0 256 100)"/>
+    <ellipse cx="256" cy="400" rx="15" ry="8" transform="rotate(0 256 400)"/>
+    <ellipse cx="100" cy="256" rx="15" ry="8" transform="rotate(90 100 256)"/>
+    <ellipse cx="400" cy="256" rx="15" ry="8" transform="rotate(90 400 256)"/>
+  </g>
+  
+  <!-- Particle dots -->
+  <g fill="#00FFCC" filter="url(#leafBlur)">
+    <circle cx="50" cy="50" r="3" opacity="0.6"/>
+    <circle cx="150" cy="50" r="2" opacity="0.5"/>
+    <circle cx="250" cy="50" r="3" opacity="0.6"/>
+    <circle cx="350" cy="50" r="2" opacity="0.5"/>
+    <circle cx="450" cy="50" r="3" opacity="0.6"/>
+    
+    <circle cx="50" cy="150" r="2" opacity="0.5"/>
+    <circle cx="150" cy="150" r="3" opacity="0.6"/>
+    <circle cx="250" cy="150" r="2" opacity="0.5"/>
+    <circle cx="350" cy="150" r="3" opacity="0.6"/>
+    <circle cx="450" cy="150" r="2" opacity="0.5"/>
+    
+    <circle cx="50" cy="250" r="3" opacity="0.6"/>
+    <circle cx="150" cy="250" r="2" opacity="0.5"/>
+    <circle cx="250" cy="250" r="3" opacity="0.6"/>
+    <circle cx="350" cy="250" r="2" opacity="0.5"/>
+    <circle cx="450" cy="250" r="3" opacity="0.6"/>
+    
+    <circle cx="50" cy="350" r="2" opacity="0.5"/>
+    <circle cx="150" cy="350" r="3" opacity="0.6"/>
+    <circle cx="250" cy="350" r="2" opacity="0.5"/>
+    <circle cx="350" cy="350" r="3" opacity="0.6"/>
+    <circle cx="450" cy="350" r="2" opacity="0.5"/>
+    
+    <circle cx="50" cy="450" r="3" opacity="0.6"/>
+    <circle cx="150" cy="450" r="2" opacity="0.5"/>
+    <circle cx="250" cy="450" r="3" opacity="0.6"/>
+    <circle cx="350" cy="450" r="2" opacity="0.5"/>
+    <circle cx="450" cy="450" r="3" opacity="0.6"/>
+  </g>
+  
+  <!-- Connecting lines -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" opacity="0.3">
+    <line x1="100" y1="100" x2="200" y2="150"/>
+    <line x1="200" y1="150" x2="256" y2="256"/>
+    <line x1="256" y1="256" x2="300" y2="150"/>
+    <line x1="300" y1="150" x2="400" y2="100"/>
+    
+    <line x1="100" y1="400" x2="200" y2="350"/>
+    <line x1="200" y1="350" x2="256" y2="256"/>
+    <line x1="256" y1="256" x2="300" y2="350"/>
+    <line x1="300" y1="350" x2="400" y2="400"/>
+    
+    <line x1="100" y1="100" x2="100" y2="256"/>
+    <line x1="100" y1="256" x2="100" y2="400"/>
+    <line x1="400" y1="100" x2="400" y2="256"/>
+    <line x1="400" y1="256" x2="400" y2="400"/>
+  </g>
+</svg>

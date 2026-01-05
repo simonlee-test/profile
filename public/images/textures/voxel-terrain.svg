@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="terrainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="voxelTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:0.6" />
+    </linearGradient>
+    <linearGradient id="voxelSide1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7000FF;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00FFCC;stop-opacity:0.4" />
+    </linearGradient>
+    <linearGradient id="voxelSide2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#32CD32;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0.4" />
+    </linearGradient>
+    <filter id="voxelGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#terrainGradient)"/>
+  
+  <!-- Grid pattern -->
+  <g stroke="#00FFCC" stroke-width="0.5" fill="none" opacity="0.2">
+    <line x1="0" y1="100" x2="512" y2="100"/>
+    <line x1="0" y1="200" x2="512" y2="200"/>
+    <line x1="0" y1="300" x2="512" y2="300"/>
+    <line x1="0" y1="400" x2="512" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="512"/>
+    <line x1="200" y1="0" x2="200" y2="512"/>
+    <line x1="300" y1="0" x2="300" y2="512"/>
+    <line x1="400" y1="0" x2="400" y2="512"/>
+  </g>
+  
+  <!-- Voxel cubes -->
+  <g filter="url(#voxelGlow)">
+    <!-- Row 1 -->
+    <g transform="translate(50, 350)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <g transform="translate(150, 320)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <g transform="translate(250, 350)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <g transform="translate(350, 380)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <!-- Row 2 -->
+    <g transform="translate(100, 290)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <g transform="translate(200, 260)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <g transform="translate(300, 290)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <!-- Row 3 -->
+    <g transform="translate(150, 230)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <g transform="translate(250, 200)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+    
+    <!-- Row 4 -->
+    <g transform="translate(200, 170)">
+      <polygon points="30,0 60,15 30,30 0,15" fill="url(#voxelTop)"/>
+      <polygon points="0,15 30,30 30,60 0,45" fill="url(#voxelSide1)"/>
+      <polygon points="30,30 60,15 60,45 30,60" fill="url(#voxelSide2)"/>
+    </g>
+  </g>
+  
+  <!-- Connecting lines -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" opacity="0.3">
+    <line x1="80" y1="380" x2="180" y2="350"/>
+    <line x1="180" y1="350" x2="280" y2="380"/>
+    <line x1="280" y1="380" x2="380" y2="410"/>
+    
+    <line x1="130" y1="320" x2="230" y2="290"/>
+    <line x1="230" y1="290" x2="330" y2="320"/>
+    
+    <line x1="180" y1="260" x2="280" y2="230"/>
+    
+    <line x1="230" y1="200" x2="230" y2="170"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <g fill="#00FFCC" filter="url(#voxelGlow)" opacity="0.6">
+    <circle cx="80" cy="380" r="3"/>
+    <circle cx="180" y1="350" r="2"/>
+    <circle cx="280" cy="380" r="3"/>
+    <circle cx="380" cy="410" r="2"/>
+    
+    <circle cx="130" cy="320" r="2"/>
+    <circle cx="230" cy="290" r="3"/>
+    <circle cx="330" cy="320" r="2"/>
+    
+    <circle cx="180" cy="260" r="3"/>
+    <circle cx="280" cy="230" r="2"/>
+    
+    <circle cx="230" cy="200" r="2"/>
+    <circle cx="230" cy="170" r="3"/>
+  </g>
+</svg>

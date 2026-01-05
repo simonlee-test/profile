@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="holoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a1a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="holoLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#00FFCC;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#00FFCC;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="holoLineGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7000FF;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#7000FF;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#7000FF;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="holoLineGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#32CD32;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#32CD32;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:0" />
+    </linearGradient>
+    <filter id="holoGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="holoBlur">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#holoGradient)"/>
+  
+  <!-- Holographic scan lines -->
+  <g stroke="url(#holoLineGradient)" stroke-width="2" fill="none" filter="url(#holoGlow)">
+    <line x1="0" y1="50" x2="512" y2="50"/>
+    <line x1="0" y1="100" x2="512" y2="100"/>
+    <line x1="0" y1="150" x2="512" y2="150"/>
+    <line x1="0" y1="200" x2="512" y2="200"/>
+    <line x1="0" y1="250" x2="512" y2="250"/>
+    <line x1="0" y1="300" x2="512" y2="300"/>
+    <line x1="0" y1="350" x2="512" y2="350"/>
+    <line x1="0" y1="400" x2="512" y2="400"/>
+    <line x1="0" y1="450" x2="512" y2="450"/>
+  </g>
+  
+  <!-- Secondary scan lines (offset) -->
+  <g stroke="url(#holoLineGradient2)" stroke-width="1.5" fill="none" filter="url(#holoGlow)">
+    <line x1="0" y1="75" x2="512" y2="75"/>
+    <line x1="0" y1="125" x2="512" y2="125"/>
+    <line x1="0" y1="175" x2="512" y2="175"/>
+    <line x1="0" y1="225" x2="512" y2="225"/>
+    <line x1="0" y1="275" x2="512" y2="275"/>
+    <line x1="0" y1="325" x2="512" y2="325"/>
+    <line x1="0" y1="375" x2="512" y2="375"/>
+    <line x1="0" y1="425" x2="512" y2="425"/>
+    <line x1="0" y1="475" x2="512" y2="475"/>
+  </g>
+  
+  <!-- Tertiary scan lines (offset) -->
+  <g stroke="url(#holoLineGradient3)" stroke-width="1" fill="none" filter="url(#holoGlow)">
+    <line x1="0" y1="25" x2="512" y2="25"/>
+    <line x1="0" y1="175" x2="512" y2="175"/>
+    <line x1="0" y1="325" x2="512" y2="325"/>
+    <line x1="0" y1="475" x2="512" y2="475"/>
+  </g>
+  
+  <!-- Holographic interference pattern -->
+  <g stroke="#00FFCC" stroke-width="0.5" fill="none" opacity="0.3" filter="url(#holoBlur)">
+    <path d="M 0 0 Q 128 128 256 0 T 512 0"/>
+    <path d="M 0 128 Q 128 256 256 128 T 512 128"/>
+    <path d="M 0 256 Q 128 384 256 256 T 512 256"/>
+    <path d="M 0 384 Q 128 512 256 384 T 512 384"/>
+  </g>
+  
+  <!-- Holographic data blocks -->
+  <g fill="#00FFCC" opacity="0.2" filter="url(#holoGlow)">
+    <rect x="50" y="50" width="40" height="40"/>
+    <rect x="150" y="100" width="40" height="40"/>
+    <rect x="250" y="150" width="40" height="40"/>
+    <rect x="350" y="200" width="40" height="40"/>
+    <rect x="450" y="250" width="40" height="40"/>
+    <rect x="100" y="300" width="40" height="40"/>
+    <rect x="200" y="350" width="40" height="40"/>
+    <rect x="300" y="400" width="40" height="40"/>
+    <rect x="400" y="450" width="40" height="40"/>
+  </g>
+  
+  <g fill="#7000FF" opacity="0.2" filter="url(#holoGlow)">
+    <rect x="100" y="50" width="40" height="40"/>
+    <rect x="200" y="100" width="40" height="40"/>
+    <rect x="300" y="150" width="40" height="40"/>
+    <rect x="400" y="200" width="40" height="40"/>
+    <rect x="50" y="250" width="40" height="40"/>
+    <rect x="150" y="300" width="40" height="40"/>
+    <rect x="250" y="350" width="40" height="40"/>
+    <rect x="350" y="400" width="40" height="40"/>
+    <rect x="450" y="450" width="40" height="40"/>
+  </g>
+  
+  <!-- Holographic particles -->
+  <g fill="#32CD32" filter="url(#holoGlow)">
+    <circle cx="70" cy="70" r="2"/>
+    <circle cx="170" cy="120" r="2"/>
+    <circle cx="270" cy="170" r="2"/>
+    <circle cx="370" cy="220" r="2"/>
+    <circle cx="470" cy="270" r="2"/>
+    <circle cx="120" cy="320" r="2"/>
+    <circle cx="220" cy="370" r="2"/>
+    <circle cx="320" cy="420" r="2"/>
+    <circle cx="420" cy="470" r="2"/>
+    
+    <circle cx="120" cy="70" r="1.5"/>
+    <circle cx="220" cy="120" r="1.5"/>
+    <circle cx="320" cy="170" r="1.5"/>
+    <circle cx="420" cy="220" r="1.5"/>
+    <circle cx="70" cy="270" r="1.5"/>
+    <circle cx="170" cy="320" r="1.5"/>
+    <circle cx="270" cy="370" r="1.5"/>
+    <circle cx="370" cy="420" r="1.5"/>
+    <circle cx="470" cy="470" r="1.5"/>
+  </g>
+  
+  <!-- Holographic interference dots -->
+  <g fill="#00FFCC" opacity="0.4" filter="url(#holoBlur)">
+    <circle cx="256" cy="256" r="4"/>
+    <circle cx="200" cy="200" r="3"/>
+    <circle cx="312" cy="200" r="3"/>
+    <circle cx="200" cy="312" r="3"/>
+    <circle cx="312" cy="312" r="3"/>
+  </g>
+  
+  <!-- Holographic wave pattern -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" opacity="0.4" filter="url(#holoGlow)">
+    <path d="M 0 256 Q 64 200 128 256 T 256 256 T 384 256 T 512 256"/>
+    <path d="M 0 280 Q 64 220 128 280 T 256 280 T 384 280 T 512 280"/>
+    <path d="M 0 232 Q 64 180 128 232 T 256 232 T 384 232 T 512 232"/>
+  </g>
+  
+  <!-- Holographic corner markers -->
+  <g stroke="#00FFCC" stroke-width="2" fill="none" filter="url(#holoGlow)">
+    <!-- Top-left -->
+    <path d="M 20 0 L 20 20 L 0 20"/>
+    <!-- Top-right -->
+    <path d="M 492 0 L 492 20 L 512 20"/>
+    <!-- Bottom-left -->
+    <path d="M 20 512 L 20 492 L 0 492"/>
+    <!-- Bottom-right -->
+    <path d="M 492 512 L 492 492 L 512 492"/>
+  </g>
+  
+  <!-- Holographic center crosshair -->
+  <g stroke="#32CD32" stroke-width="1" fill="none" opacity="0.5" filter="url(#holoGlow)">
+    <line x1="236" y1="256" x2="276" y2="256"/>
+    <line x1="256" y1="236" x2="256" y2="276"/>
+    <circle cx="256" cy="256" r="20" stroke-width="0.5"/>
+  </g>
+</svg>

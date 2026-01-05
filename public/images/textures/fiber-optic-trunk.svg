@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="1024" viewBox="0 0 512 1024">
+  <defs>
+    <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#050505;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#050505;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fiberGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFCC;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#7000FF;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#32CD32;stop-opacity:0.8" />
+    </linearGradient>
+    <filter id="fiberGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="1024" fill="url(#trunkGradient)"/>
+  
+  <!-- Main trunk structure -->
+  <g stroke="#00FFCC" stroke-width="2" fill="none" opacity="0.6">
+    <!-- Vertical fibers -->
+    <path d="M 100 0 Q 120 256 100 512 Q 80 768 100 1024" filter="url(#fiberGlow)"/>
+    <path d="M 150 0 Q 170 256 150 512 Q 130 768 150 1024" filter="url(#fiberGlow)"/>
+    <path d="M 200 0 Q 220 256 200 512 Q 180 768 200 1024" filter="url(#fiberGlow)"/>
+    <path d="M 250 0 Q 270 256 250 512 Q 230 768 250 1024" filter="url(#fiberGlow)"/>
+    <path d="M 300 0 Q 320 256 300 512 Q 280 768 300 1024" filter="url(#fiberGlow)"/>
+    <path d="M 350 0 Q 370 256 350 512 Q 330 768 350 1024" filter="url(#fiberGlow)"/>
+    <path d="M 400 0 Q 420 256 400 512 Q 380 768 400 1024" filter="url(#fiberGlow)"/>
+  </g>
+  
+  <!-- Horizontal connections -->
+  <g stroke="#7000FF" stroke-width="1" fill="none" opacity="0.4">
+    <line x1="100" y1="128" x2="400" y2="128"/>
+    <line x1="100" y1="256" x2="400" y2="256"/>
+    <line x1="100" y1="384" x2="400" y2="384"/>
+    <line x1="100" y1="512" x2="400" y2="512"/>
+    <line x1="100" y1="640" x2="400" y2="640"/>
+    <line x1="100" y1="768" x2="400" y2="768"/>
+    <line x1="100" y1="896" x2="400" y2="896"/>
+  </g>
+  
+  <!-- Glowing nodes -->
+  <g fill="#32CD32" filter="url(#fiberGlow)">
+    <circle cx="100" cy="128" r="4"/>
+    <circle cx="150" cy="128" r="4"/>
+    <circle cx="200" cy="128" r="4"/>
+    <circle cx="250" cy="128" r="4"/>
+    <circle cx="300" cy="128" r="4"/>
+    <circle cx="350" cy="128" r="4"/>
+    <circle cx="400" cy="128" r="4"/>
+    
+    <circle cx="100" cy="256" r="4"/>
+    <circle cx="150" cy="256" r="4"/>
+    <circle cx="200" cy="256" r="4"/>
+    <circle cx="250" cy="256" r="4"/>
+    <circle cx="300" cy="256" r="4"/>
+    <circle cx="350" cy="256" r="4"/>
+    <circle cx="400" cy="256" r="4"/>
+    
+    <circle cx="100" cy="384" r="4"/>
+    <circle cx="150" cy="384" r="4"/>
+    <circle cx="200" cy="384" r="4"/>
+    <circle cx="250" cy="384" r="4"/>
+    <circle cx="300" cy="384" r="4"/>
+    <circle cx="350" cy="384" r="4"/>
+    <circle cx="400" cy="384" r="4"/>
+    
+    <circle cx="100" cy="512" r="4"/>
+    <circle cx="150" cy="512" r="4"/>
+    <circle cx="200" cy="512" r="4"/>
+    <circle cx="250" cy="512" r="4"/>
+    <circle cx="300" cy="512" r="4"/>
+    <circle cx="350" cy="512" r="4"/>
+    <circle cx="400" cy="512" r="4"/>
+    
+    <circle cx="100" cy="640" r="4"/>
+    <circle cx="150" cy="640" r="4"/>
+    <circle cx="200" cy="640" r="4"/>
+    <circle cx="250" cy="640" r="4"/>
+    <circle cx="300" cy="640" r="4"/>
+    <circle cx="350" cy="640" r="4"/>
+    <circle cx="400" cy="640" r="4"/>
+    
+    <circle cx="100" cy="768" r="4"/>
+    <circle cx="150" cy="768" r="4"/>
+    <circle cx="200" cy="768" r="4"/>
+    <circle cx="250" cy="768" r="4"/>
+    <circle cx="300" cy="768" r="4"/>
+    <circle cx="350" cy="768" r="4"/>
+    <circle cx="400" cy="768" r="4"/>
+    
+    <circle cx="100" cy="896" r="4"/>
+    <circle cx="150" cy="896" r="4"/>
+    <circle cx="200" cy="896" r="4"/>
+    <circle cx="250" cy="896" r="4"/>
+    <circle cx="300" cy="896" r="4"/>
+    <circle cx="350" cy="896" r="4"/>
+    <circle cx="400" cy="896" r="4"/>
+  </g>
+  
+  <!-- Data flow particles -->
+  <g fill="#00FFCC" filter="url(#fiberGlow)" opacity="0.8">
+    <circle cx="100" cy="64" r="3"/>
+    <circle cx="150" cy="192" r="3"/>
+    <circle cx="200" cy="320" r="3"/>
+    <circle cx="250" cy="448" r="3"/>
+    <circle cx="300" cy="576" r="3"/>
+    <circle cx="350" cy="704" r="3"/>
+    <circle cx="400" cy="832" r="3"/>
+  </g>
+</svg>

@@ -47,6 +47,7 @@ export interface BlogPost {
  * Blog post data (detail view)
  */
 export interface BlogPostDetail extends BlogPost {
+  content: string;
   author_email: string;
   category: BlogCategory | null;
   comments: BlogComment[];
