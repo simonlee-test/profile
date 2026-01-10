@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { useThemeStore } from '@/store/themeStore';
 
 interface NavItem {
@@ -58,7 +58,7 @@ export function Navigation({ items = defaultNavItems }: NavigationProps) {
     setIsMobileMenuOpen(false);
     // Check if it's an external link (starts with / but not #)
     if (href.startsWith('/') && !href.startsWith('#')) {
-      window.location.href = href;
+      // Use React Router's navigation - this will be handled by Link components
       return;
     }
     const element = document.querySelector(href);
@@ -112,29 +112,64 @@ export function Navigation({ items = defaultNavItems }: NavigationProps) {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              {items.map((item) => (
-                <motion.button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative font-medium transition-colors"
-                  style={{
-                    color:
-                      activeSection === item.href.replace('#', '') ? colors.accent : colors.text,
-                  }}
-                >
-                  {item.label}
-                  {activeSection === item.href.replace('#', '') && (
+              {items.map((item) => {
+                const isExternalLink = item.href.startsWith('/') && !item.href.startsWith('#');
+
+                if (isExternalLink) {
+                  return (
                     <motion.div
-                      layoutId="activeNav"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5"
-                      style={{ backgroundColor: colors.accent }}
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </motion.button>
-              ))}
+                      key={item.href}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link
+                        to={item.href}
+                        className="relative font-medium transition-colors"
+                        style={{
+                          color:
+                            activeSection === item.href.replace('#', '')
+                              ? colors.accent
+                              : colors.text,
+                        }}
+                      >
+                        {item.label}
+                        {activeSection === item.href.replace('#', '') && (
+                          <motion.div
+                            layoutId="activeNav"
+                            className="absolute -bottom-1 left-0 right-0 h-0.5"
+                            style={{ backgroundColor: colors.accent }}
+                            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                          />
+                        )}
+                      </Link>
+                    </motion.div>
+                  );
+                }
+
+                return (
+                  <motion.button
+                    key={item.href}
+                    onClick={() => handleNavClick(item.href)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative font-medium transition-colors"
+                    style={{
+                      color:
+                        activeSection === item.href.replace('#', '') ? colors.accent : colors.text,
+                    }}
+                  >
+                    {item.label}
+                    {activeSection === item.href.replace('#', '') && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5"
+                        style={{ backgroundColor: colors.accent }}
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </motion.button>
+                );
+              })}
 
               {/* Theme Toggle */}
               <motion.button
@@ -212,24 +247,50 @@ export function Navigation({ items = defaultNavItems }: NavigationProps) {
             }}
           >
             <div className="px-4 py-4 space-y-2">
-              {items.map((item) => (
-                <motion.button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  whileTap={{ scale: 0.95 }}
-                  className="block w-full text-left px-4 py-2 rounded-lg font-medium transition-colors"
-                  style={{
-                    color:
-                      activeSection === item.href.replace('#', '') ? colors.accent : colors.text,
-                    backgroundColor:
-                      activeSection === item.href.replace('#', '')
-                        ? `${colors.accent}20`
-                        : 'transparent',
-                  }}
-                >
-                  {item.label}
-                </motion.button>
-              ))}
+              {items.map((item) => {
+                const isExternalLink = item.href.startsWith('/') && !item.href.startsWith('#');
+
+                if (isExternalLink) {
+                  return (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className="block w-full text-left px-4 py-2 rounded-lg font-medium transition-colors"
+                      style={{
+                        color:
+                          activeSection === item.href.replace('#', '')
+                            ? colors.accent
+                            : colors.text,
+                        backgroundColor:
+                          activeSection === item.href.replace('#', '')
+                            ? `${colors.accent}20`
+                            : 'transparent',
+                      }}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+
+                return (
+                  <motion.button
+                    key={item.href}
+                    onClick={() => handleNavClick(item.href)}
+                    whileTap={{ scale: 0.95 }}
+                    className="block w-full text-left px-4 py-2 rounded-lg font-medium transition-colors"
+                    style={{
+                      color:
+                        activeSection === item.href.replace('#', '') ? colors.accent : colors.text,
+                      backgroundColor:
+                        activeSection === item.href.replace('#', '')
+                          ? `${colors.accent}20`
+                          : 'transparent',
+                    }}
+                  >
+                    {item.label}
+                  </motion.button>
+                );
+              })}
 
               {/* Mobile Theme Toggle */}
               <motion.button

@@ -2,7 +2,7 @@
 
 import { Suspense, lazy, useState } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Navigation } from '@/components/Navigation';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { LoadingSpinner } from '@/components/LoadingSpinner';
@@ -237,7 +237,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-gray-400"
             >
-              © {new Date().getFullYear()} Neural Digital Garden. Built with Next.js, React Three
+              © {new Date().getFullYear()} Neural Digital Garden. Built with Vite, React Three
               Fiber, and Framer Motion.
             </motion.p>
           </div>
@@ -345,7 +345,7 @@ function BlogPreview() {
             className="text-center"
           >
             <Link
-              href="/blog"
+              to="/blog"
               className="inline-flex items-center gap-2 px-8 py-3 bg-neon-mint/20 text-neon-mint rounded-full hover:bg-neon-mint/30 transition-colors"
             >
               <span>View All Posts</span>

@@ -1,9 +1,10 @@
 'use client';
 
 import { useRef, useMemo, useState, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls, Text, Html } from '@react-three/drei';
 import * as THREE from 'three';
+import { TextureLoader } from 'three';
 import type { NormalizedContributionData } from '@/types/github';
 
 interface GitHubTerrainProps {
@@ -27,6 +28,9 @@ interface VoxelCubeProps {
 function VoxelCube({ position, color, contributionCount, onClick, onHover }: VoxelCubeProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
+
+  // Load voxel terrain texture
+  const voxelTexture = useLoader(TextureLoader, '/images/textures/voxel-terrain.svg');
 
   const scale = useMemo(() => {
     // Scale height based on contribution count (logarithmic scale for better visualization)
@@ -65,6 +69,7 @@ function VoxelCube({ position, color, contributionCount, onClick, onHover }: Vox
     >
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial
+        map={voxelTexture}
         color={materialColor}
         metalness={0.3}
         roughness={0.4}
@@ -97,6 +102,9 @@ export function GitHubTerrain({
   const groupRef = useRef<THREE.Group>(null);
   const [selectedCube, setSelectedCube] = useState<NormalizedContributionData | null>(null);
   const [hoveredCube, setHoveredCube] = useState<NormalizedContributionData | null>(null);
+
+  // Load voxel terrain texture for ground plane
+  const voxelTexture = useLoader(TextureLoader, '/images/textures/voxel-terrain.svg');
 
   // Calculate terrain dimensions
   const terrainDimensions = useMemo(() => {
@@ -265,7 +273,7 @@ export function GitHubTerrain({
       {/* Ground Plane */}
       <mesh position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
         <planeGeometry args={[terrainDimensions.width + 2, terrainDimensions.depth + 2]} />
-        <meshStandardMaterial color="#050505" metalness={0.8} roughness={0.2} />
+        <meshStandardMaterial map={voxelTexture} color="#050505" metalness={0.8} roughness={0.2} />
       </mesh>
 
       {/* Grid Helper */}

@@ -1,9 +1,10 @@
 'use client';
 
 import { useRef, useMemo } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
 import { useThemeStore } from '@/store/themeStore';
 import * as THREE from 'three';
+import { TextureLoader } from 'three';
 
 /**
  * Neural Tree component with procedural generation
@@ -18,6 +19,10 @@ export function NeuralTree() {
   const { scrollProgress, isAnimating } = useThemeStore();
   const groupRef = useRef<THREE.Group>(null);
   const particlesRef = useRef<THREE.Points>(null);
+
+  // Load textures
+  const fiberOpticTexture = useLoader(TextureLoader, '/images/textures/fiber-optic-trunk.svg');
+  const particleTexture = useLoader(TextureLoader, '/images/textures/particle-leaves.svg');
 
   // Generate tree structure
   const { branches, particles } = useMemo(() => {
@@ -117,18 +122,30 @@ export function NeuralTree() {
       {branchGeometries.map((geometry, index) => (
         <mesh key={index} geometry={geometry}>
           <meshStandardMaterial
+            map={fiberOpticTexture}
             color={index % 3 === 0 ? '#00FFCC' : index % 3 === 1 ? '#7000FF' : '#32CD32'}
             emissive={index % 3 === 0 ? '#00FFCC' : index % 3 === 1 ? '#7000FF' : '#32CD32'}
             emissiveIntensity={0.5}
             roughness={0.3}
             metalness={0.8}
+            transparent
+            opacity={0.9}
           />
         </mesh>
       ))}
 
       {/* Particle leaves */}
       <points ref={particlesRef} geometry={particleGeometry}>
-        <pointsMaterial size={0.1} vertexColors transparent opacity={0.8} sizeAttenuation />
+        <pointsMaterial
+          map={particleTexture}
+          size={0.1}
+          vertexColors
+          transparent
+          opacity={0.8}
+          sizeAttenuation
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
       </points>
     </group>
   );
