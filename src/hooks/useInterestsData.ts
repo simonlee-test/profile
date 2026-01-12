@@ -4,8 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import type { Interest, InterestCategory, InterestFilters, InterestApiResponse } from '@/types/interests';
-
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+import { mockInterests, mockInterestCategories } from '@/data/mockInterestsData';
 
 /**
  * Fetch all interests with optional filters
@@ -19,15 +18,28 @@ export function useInterests(filters?: InterestFilters) {
     async function fetchInterests() {
       try {
         setLoading(true);
-        const params = new URLSearchParams();
-        if (filters?.category) params.append('category', filters.category);
-        if (filters?.search) params.append('search', filters.search);
-        if (filters?.tags?.length) params.append('tags', filters.tags.join(','));
-
-        const response = await fetch(`${API_BASE_URL}/interests/?${params.toString()}`);
-        if (!response.ok) throw new Error('Failed to fetch interests');
-        const result: InterestApiResponse<Interest> = await response.json();
-        setData(result.data);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 400));
+        
+        let filteredData = [...mockInterests];
+        
+        if (filters?.category) {
+          filteredData = filteredData.filter(i => i.category === filters.category);
+        }
+        if (filters?.search) {
+          const searchLower = filters.search.toLowerCase();
+          filteredData = filteredData.filter(i =>
+            i.title.toLowerCase().includes(searchLower) ||
+            i.description.toLowerCase().includes(searchLower)
+          );
+        }
+        if (filters?.tags && filters.tags.length > 0) {
+          filteredData = filteredData.filter(i =>
+            filters.tags!.some(tag => i.tags.includes(tag))
+          );
+        }
+        
+        setData(filteredData);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
@@ -53,10 +65,11 @@ export function useInterest(id: string) {
     async function fetchInterest() {
       try {
         setLoading(true);
-        const response = await fetch(`${API_BASE_URL}/interests/${id}/`);
-        if (!response.ok) throw new Error('Failed to fetch interest');
-        const result: Interest = await response.json();
-        setData(result);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        const result = mockInterests.find(i => i.id === id);
+        setData(result || null);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
@@ -84,10 +97,9 @@ export function useInterestCategories() {
     async function fetchCategories() {
       try {
         setLoading(true);
-        const response = await fetch(`${API_BASE_URL}/interests/categories/`);
-        if (!response.ok) throw new Error('Failed to fetch categories');
-        const result: InterestApiResponse<InterestCategory> = await response.json();
-        setData(result.data);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 300));
+        setData(mockInterestCategories);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
@@ -113,10 +125,9 @@ export function useFeaturedInterests() {
     async function fetchFeatured() {
       try {
         setLoading(true);
-        const response = await fetch(`${API_BASE_URL}/interests/featured/`);
-        if (!response.ok) throw new Error('Failed to fetch featured interests');
-        const result: InterestApiResponse<Interest> = await response.json();
-        setData(result.data);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 400));
+        setData(mockInterests.filter(i => i.featured));
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {

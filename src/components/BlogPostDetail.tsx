@@ -17,7 +17,7 @@ import {
   Send,
   Loader2,
 } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 interface BlogPostDetailProps {
   slug: string;
@@ -224,7 +224,7 @@ export default function BlogPostDetail({ slug, onBack }: BlogPostDetailProps) {
             The blog post you're looking for doesn't exist or has been removed.
           </p>
           <Link
-            href="/blog"
+            to="/blog"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all"
             style={{ backgroundColor: colors.accent, color: '#000' }}
           >
@@ -285,7 +285,7 @@ export default function BlogPostDetail({ slug, onBack }: BlogPostDetailProps) {
           {/* Category */}
           {post.category && (
             <Link
-              href={`/blog?category=${post.category.slug}`}
+              to={`/blog?category=${post.category.slug}`}
               className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium transition-colors hover:opacity-80 mb-6"
               style={{ backgroundColor: colors.accent, color: '#000' }}
             >
@@ -299,7 +299,7 @@ export default function BlogPostDetail({ slug, onBack }: BlogPostDetailProps) {
               {post.tags.map((tag) => (
                 <Link
                   key={tag.id}
-                  href={`/blog?tags=${tag.slug}`}
+                  to={`/blog?tags=${tag.slug}`}
                   className="px-3 py-1 rounded-full text-sm font-medium transition-colors hover:opacity-80"
                   style={{
                     backgroundColor: colors.cardBg,

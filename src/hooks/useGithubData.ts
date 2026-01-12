@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
-import { fetchGitHubUser } from '@/lib/github-api';
 import type {
   GitHubUser,
   NormalizedContributionData,
   GitHubRepository
 } from '@/types/github';
+import { mockGitHubUser, mockRepositories, mockContributions } from '@/data/mockGithubData';
 
 interface UseGithubDataOptions {
   username: string;
@@ -85,22 +85,22 @@ export function useGithubData(options: UseGithubDataOptions): UseGithubDataRetur
     setError(null);
 
     try {
-      const response = await fetchGitHubUser(username, token, from, to);
-      const userData = response.user;
-
-      setUser(userData);
-      setRepositories(userData.repositories.nodes);
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      setUser(mockGitHubUser);
+      setRepositories(mockRepositories);
       setTotalContributions(
-        userData.contributionsCollection.contributionCalendar.totalContributions
+        mockGitHubUser.contributionsCollection.contributionCalendar.totalContributions
       );
-      setContributions(normalizeContributions(userData));
+      setContributions(mockContributions);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Failed to fetch GitHub data'));
       console.error('GitHub data fetch error:', err);
     } finally {
       setIsLoading(false);
     }
-  }, [username, token, from, to, enabled, normalizeContributions]);
+  }, [username, token, from, to, enabled]);
 
   /**
    * Refetch data

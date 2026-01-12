@@ -1,10 +1,10 @@
 'use client';
 
 import { useRef, useMemo, useState, useEffect } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { OrbitControls, Text, Html } from '@react-three/drei';
 import * as THREE from 'three';
-import { TextureLoader } from 'three';
+import { createVoxelTerrainTexture } from '@/lib/textureLoader';
 import type { NormalizedContributionData } from '@/types/github';
 
 interface GitHubTerrainProps {
@@ -28,9 +28,12 @@ interface VoxelCubeProps {
 function VoxelCube({ position, color, contributionCount, onClick, onHover }: VoxelCubeProps) {
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
+  const [voxelTexture, setVoxelTexture] = useState<THREE.CanvasTexture | null>(null);
 
-  // Load voxel terrain texture
-  const voxelTexture = useLoader(TextureLoader, '/images/textures/voxel-terrain.svg');
+  // Create texture on mount
+  useEffect(() => {
+    setVoxelTexture(createVoxelTerrainTexture());
+  }, []);
 
   const scale = useMemo(() => {
     // Scale height based on contribution count (logarithmic scale for better visualization)
@@ -57,6 +60,11 @@ function VoxelCube({ position, color, contributionCount, onClick, onHover }: Vox
     setHovered(false);
     onHover?.(false);
   };
+
+  // Don't render until texture is loaded
+  if (!voxelTexture) {
+    return null;
+  }
 
   return (
     <mesh
@@ -102,9 +110,12 @@ export function GitHubTerrain({
   const groupRef = useRef<THREE.Group>(null);
   const [selectedCube, setSelectedCube] = useState<NormalizedContributionData | null>(null);
   const [hoveredCube, setHoveredCube] = useState<NormalizedContributionData | null>(null);
+  const [voxelTexture, setVoxelTexture] = useState<THREE.CanvasTexture | null>(null);
 
-  // Load voxel terrain texture for ground plane
-  const voxelTexture = useLoader(TextureLoader, '/images/textures/voxel-terrain.svg');
+  // Create texture on mount
+  useEffect(() => {
+    setVoxelTexture(createVoxelTerrainTexture());
+  }, []);
 
   // Calculate terrain dimensions
   const terrainDimensions = useMemo(() => {
@@ -271,10 +282,17 @@ export function GitHubTerrain({
       )}
 
       {/* Ground Plane */}
-      <mesh position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-        <planeGeometry args={[terrainDimensions.width + 2, terrainDimensions.depth + 2]} />
-        <meshStandardMaterial map={voxelTexture} color="#050505" metalness={0.8} roughness={0.2} />
-      </mesh>
+      {voxelTexture && (
+        <mesh position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
+          <planeGeometry args={[terrainDimensions.width + 2, terrainDimensions.depth + 2]} />
+          <meshStandardMaterial
+            map={voxelTexture}
+            color="#050505"
+            metalness={0.8}
+            roughness={0.2}
+          />
+        </mesh>
+      )}
 
       {/* Grid Helper */}
       <gridHelper

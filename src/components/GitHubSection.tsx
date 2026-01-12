@@ -23,9 +23,9 @@ export function GitHubSection() {
   const [selectedDate, setSelectedDate] = useState<NormalizedContributionData | null>(null);
   const [useOptimized, setUseOptimized] = useState(false);
 
-  // GitHub username - replace with your actual username
-  const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'your-username';
-  const githubToken = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
+  // GitHub username - using mock data
+  const username = 'simonlee';
+  const githubToken = undefined;
 
   const { user, contributions, totalContributions, isLoading, error, refetch } = useGithubData({
     username,

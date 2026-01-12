@@ -1,10 +1,10 @@
 'use client';
 
-import { useRef, useMemo } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
+import { useRef, useMemo, useEffect, useState } from 'react';
+import { useFrame } from '@react-three/fiber';
 import { useThemeStore } from '@/store/themeStore';
 import * as THREE from 'three';
-import { TextureLoader } from 'three';
+import { createFiberOpticTexture, createParticleTexture } from '@/lib/textureLoader';
 
 /**
  * Neural Tree component with procedural generation
@@ -19,10 +19,14 @@ export function NeuralTree() {
   const { scrollProgress, isAnimating } = useThemeStore();
   const groupRef = useRef<THREE.Group>(null);
   const particlesRef = useRef<THREE.Points>(null);
+  const [fiberOpticTexture, setFiberOpticTexture] = useState<THREE.CanvasTexture | null>(null);
+  const [particleTexture, setParticleTexture] = useState<THREE.CanvasTexture | null>(null);
 
-  // Load textures
-  const fiberOpticTexture = useLoader(TextureLoader, '/images/textures/fiber-optic-trunk.svg');
-  const particleTexture = useLoader(TextureLoader, '/images/textures/particle-leaves.svg');
+  // Create textures on mount
+  useEffect(() => {
+    setFiberOpticTexture(createFiberOpticTexture());
+    setParticleTexture(createParticleTexture());
+  }, []);
 
   // Generate tree structure
   const { branches, particles } = useMemo(() => {
@@ -115,6 +119,11 @@ export function NeuralTree() {
       particlesRef.current.geometry.attributes.position.needsUpdate = true;
     }
   });
+
+  // Don't render until textures are loaded
+  if (!fiberOpticTexture || !particleTexture) {
+    return null;
+  }
 
   return (
     <group ref={groupRef}>

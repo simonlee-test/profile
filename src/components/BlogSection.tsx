@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { useBlogPosts, useBlogCategories, useBlogTags } from '@/hooks/useBlogData';
 import type { BlogFilters } from '@/types/blog';
 import { Search, Filter, Calendar, Clock, MessageCircle, Tag, ArrowRight } from 'lucide-react';
@@ -221,7 +221,7 @@ function BlogPostCard({ post, index }: { post: any; index: number }) {
   };
 
   return (
-    <Link href={`/blog/${post.slug}`}>
+    <Link to={`/blog/${post.slug}`}>
       <motion.article
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

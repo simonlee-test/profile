@@ -1,10 +1,11 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
+import { useRef, useState, useEffect } from 'react';
+import { useFrame } from '@react-three/fiber';
 import { Mesh } from 'three';
+import * as THREE from 'three';
 import { useThemeStore } from '@/store/themeStore';
-import { TextureLoader } from 'three';
+import { createHologramTexture } from '@/lib/textureLoader';
 import '@react-three/fiber';
 
 interface HologramPrismProps {
@@ -24,10 +25,13 @@ export default function HologramPrism({
 }: HologramPrismProps) {
   const meshRef = useRef<Mesh>(null);
   const [rotationSpeed, setRotationSpeed] = useState(0.005);
+  const [hologramTexture, setHologramTexture] = useState<THREE.CanvasTexture | null>(null);
   const theme = useThemeStore();
 
-  // Load hologram texture
-  const hologramTexture = useLoader(TextureLoader, '/images/textures/hologram-prism.svg');
+  // Create hologram texture on mount
+  useEffect(() => {
+    setHologramTexture(createHologramTexture());
+  }, []);
 
   const prismColor = color || (theme.theme.mode === 'dark' ? '#00FFCC' : '#7000FF');
 
@@ -48,6 +52,11 @@ export default function HologramPrism({
       }
     }
   });
+
+  // Don't render until texture is loaded
+  if (!hologramTexture) {
+    return null;
+  }
 
   return (
     <group position={position} scale={scale}>

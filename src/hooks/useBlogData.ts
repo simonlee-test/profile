@@ -9,8 +9,7 @@ import type {
   BlogFilters,
   BlogCommentFormData
 } from '@/types/blog';
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+import { mockBlogPosts, mockBlogCategories, mockBlogTags, mockBlogComments, getMockBlogPostDetail } from '@/data/mockBlogData';
 
 /**
  * Custom hook to fetch blog posts
@@ -25,25 +24,34 @@ export function useBlogPosts(filters?: BlogFilters) {
     setError(null);
 
     try {
-      const queryParams = new URLSearchParams();
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      if (filters?.status) queryParams.append('status', filters.status);
-      if (filters?.category) queryParams.append('category', filters.category);
-      if (filters?.is_featured !== undefined) queryParams.append('is_featured', String(filters.is_featured));
-      if (filters?.search) queryParams.append('search', filters.search);
-      if (filters?.ordering) queryParams.append('ordering', filters.ordering);
+      let filteredPosts = [...mockBlogPosts];
       
-      filters?.tags?.forEach(tag => queryParams.append('tags', tag));
-
-      const url = `${API_URL}/blog/posts/?${queryParams.toString()}`;
-      const response = await fetch(url);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      if (filters?.status) {
+        filteredPosts = filteredPosts.filter(p => p.status === filters.status);
       }
-
-      const data: BlogApiResponse<BlogPost> = await response.json();
-      setPosts(data.results);
+      if (filters?.category) {
+        filteredPosts = filteredPosts.filter(p => p.category_name === filters.category);
+      }
+      if (filters?.is_featured !== undefined) {
+        filteredPosts = filteredPosts.filter(p => p.is_featured === filters.is_featured);
+      }
+      if (filters?.search) {
+        const searchLower = filters.search.toLowerCase();
+        filteredPosts = filteredPosts.filter(p =>
+          p.title.toLowerCase().includes(searchLower) ||
+          p.excerpt.toLowerCase().includes(searchLower)
+        );
+      }
+      if (filters?.tags && filters.tags.length > 0) {
+        filteredPosts = filteredPosts.filter(p =>
+          filters.tags!.some(tag => p.tags.some(t => t.name === tag))
+        );
+      }
+      
+      setPosts(filteredPosts);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Failed to fetch blog posts'));
       console.error('Blog posts fetch error:', err);
@@ -74,18 +82,11 @@ export function useBlogPost(slug: string) {
     setError(null);
 
     try {
-      const url = `${API_URL}/blog/posts/${slug}/`;
-      const response = await fetch(url);
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data: BlogPostDetail = await response.json();
+      const data = getMockBlogPostDetail(slug);
       setPost(data);
-      
-      // Increment view count
-      await fetch(`${API_URL}/blog/posts/${slug}/increment_view/`, { method: 'POST' });
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Failed to fetch blog post'));
       console.error('Blog post fetch error:', err);
@@ -115,15 +116,9 @@ export function useBlogCategories() {
       setError(null);
 
       try {
-        const url = `${API_URL}/blog/categories/`;
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data: BlogApiResponse<BlogCategory> = await response.json();
-        setCategories(data.results);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 300));
+        setCategories(mockBlogCategories);
       } catch (err) {
         setError(err instanceof Error ? err : new Error('Failed to fetch blog categories'));
         console.error('Blog categories fetch error:', err);
@@ -152,15 +147,9 @@ export function useBlogTags() {
       setError(null);
 
       try {
-        const url = `${API_URL}/blog/tags/`;
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data: BlogApiResponse<BlogTag> = await response.json();
-        setTags(data.results);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 300));
+        setTags(mockBlogTags);
       } catch (err) {
         setError(err instanceof Error ? err : new Error('Failed to fetch blog tags'));
         console.error('Blog tags fetch error:', err);
@@ -189,15 +178,9 @@ export function useFeaturedPosts() {
       setError(null);
 
       try {
-        const url = `${API_URL}/blog/posts/featured/`;
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data: BlogPost[] = await response.json();
-        setPosts(data);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 400));
+        setPosts(mockBlogPosts.filter(p => p.is_featured));
       } catch (err) {
         setError(err instanceof Error ? err : new Error('Failed to fetch featured posts'));
         console.error('Featured posts fetch error:', err);
@@ -226,15 +209,9 @@ export function usePopularPosts() {
       setError(null);
 
       try {
-        const url = `${API_URL}/blog/posts/popular/`;
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data: BlogPost[] = await response.json();
-        setPosts(data);
+        // Simulate API delay
+        await new Promise(resolve => setTimeout(resolve, 400));
+        setPosts(mockBlogPosts.sort((a, b) => b.view_count - a.view_count).slice(0, 5));
       } catch (err) {
         setError(err instanceof Error ? err : new Error('Failed to fetch popular posts'));
         console.error('Popular posts fetch error:', err);
@@ -264,15 +241,13 @@ export function useBlogComments(postSlug: string) {
     setError(null);
 
     try {
-      const url = `${API_URL}/blog/posts/${postSlug}/comments/`;
-      const response = await fetch(url);
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 300));
       
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      const post = mockBlogPosts.find(p => p.slug === postSlug);
+      if (post) {
+        setComments(mockBlogComments.filter(c => c.post === post.id));
       }
-
-      const data: BlogComment[] = await response.json();
-      setComments(data);
     } catch (err) {
       setError(err instanceof Error ? err : new Error('Failed to fetch comments'));
       console.error('Comments fetch error:', err);
@@ -287,20 +262,25 @@ export function useBlogComments(postSlug: string) {
 
   const submitComment = useCallback(async (commentData: BlogCommentFormData) => {
     try {
-      const url = `${API_URL}/blog/posts/${postSlug}/comments/`;
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(commentData),
-      });
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
       
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      // Refresh comments after submission
+      // Add new comment to mock data
+      const newComment: BlogComment = {
+        id: mockBlogComments.length + 1,
+        post: parseInt(postSlug),
+        author_name: commentData.author_name,
+        author_name_display: commentData.author_name,
+        author_email: commentData.author_email,
+        content: commentData.content,
+        parent: commentData.parent || null,
+        is_approved: true,
+        replies: [],
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      };
+      
+      mockBlogComments.push(newComment);
       await fetchComments();
       return true;
     } catch (err) {
